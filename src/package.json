@@ -1,0 +1,18 @@
+{
+  "name": "incoleakpeek",
+  "version": "0.0.1",
+  "description": "Memory Leak Detector for Indel INCO",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "incoleakpeek"
+  },
+  "author": "F&S Bondtec Semiconductor GmbH",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^33.3.1"
+  }
+}
