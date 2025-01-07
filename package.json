@@ -2,7 +2,7 @@
   "name": "incoleakpeek",
   "version": "0.0.1",
   "description": "Memory Leak Detector for Indel INCO",
-  "main": "main.js",
+  "main": "src/main.js",
   "scripts": {
     "start": "electron ."
   },

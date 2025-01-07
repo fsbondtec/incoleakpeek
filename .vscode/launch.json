@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
+            "args": [
+                "${workspaceFolder}"  // Hier gib den Pfad zu deinem Quellcode an
+            ],
+            "outputCapture": "std",
+            "env": {
+                "ELECTRON_RUN_AS_NODE": "1"
+            },
+            "preLaunchTask": "npm: install",  // Sicherstellen, dass npm Abhängigkeiten installiert sind
+            "windows": {
+                "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron.cmd"
+            }
+        }
+    ]
+}
