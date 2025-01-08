@@ -6,9 +6,4 @@ memory leak detector fuer indel's inco software
 ### Prerequisites
 - [node.js](https://nodejs.org/en)
 
-run:
-```cmd
-npm install
-npm install vue
-npm install --save-dev @vitejs/plugin-vue
-```
+run `npm install`
