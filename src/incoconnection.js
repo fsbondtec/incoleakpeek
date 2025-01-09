@@ -61,13 +61,14 @@ export async function incoclassmemusage() {
             const classes = await session.getTree(
                 "Target.Memory.Pools.Heap.Partitions." + key + ".Classes",
             );
-            for (const [classKey, classValue] of Object.entries(
-                classes.members,
-            )) {
+            for (const [classKey, classValue] of Object.entries(classes.members,)) {
+                if (classValue.value.value === "Count unavailable") {
+                    continue;
+                }
                 if (classKey in ret) {
-                    ret[classKey] += classValue.value.value;
+                    ret[classKey] += key * classValue.value.value;
                 } else {
-                    ret[classKey] = classValue.value.value;
+                    ret[classKey] = key * classValue.value.value;
                 }
             }
         }
