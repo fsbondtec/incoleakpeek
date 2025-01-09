@@ -1,21 +1,17 @@
 <template>
     <v-container>
-        <v-data-table
-            :headers="headers"
-            :items="items"
-            class="elevation-1"
-        >
+        <v-data-table :headers="headers" :items="items" class="elevation-1">
         </v-data-table>
     </v-container>
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue';
-import { incoclassmemusage } from '../incoconnection.js';
+import { ref, onMounted, onBeforeUnmount } from "vue";
+import { incoclassmemusage } from "../incoconnection.js";
 
 const headers = [
-    { text: 'Class Name', value: 'name', sortable: true },
-    { text: 'RAM (Byte)', value: 'memory', sortable: true },
+    { text: "Class Name", value: "name", sortable: true },
+    { text: "RAM (Byte)", value: "memory", sortable: true },
 ];
 
 const items = ref([
@@ -29,14 +25,14 @@ let intervalId = null;
 
 const updateMemoryUsage = () => {
     incoclassmemusage().then((incoClasses) => {
-        if (incoClasses && typeof incoClasses === 'object') {
+        if (incoClasses && typeof incoClasses === "object") {
             items.value = [];
             for (const [classKey, classValue] of Object.entries(incoClasses)) {
                 var cla = { name: classKey, memory: classValue };
                 items.value.push(cla);
             }
         } else {
-            console.error('Invalid data received from getClassMemUseage');
+            console.error("Invalid data received from getClassMemUseage");
         }
         console.log(items.value);
     });

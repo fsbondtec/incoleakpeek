@@ -33,10 +33,16 @@ export async function incoclassmemusage() {
     }
 
     try {
-        const partitions = await session.getTree("Target.Memory.Pools.Heap.Partitions");
+        const partitions = await session.getTree(
+            "Target.Memory.Pools.Heap.Partitions",
+        );
         for (const [key, value] of Object.entries(partitions.members)) {
-            const classes = await session.getTree("Target.Memory.Pools.Heap.Partitions." + key + ".Classes");
-            for (const [classKey, classValue] of Object.entries(classes.members)) {
+            const classes = await session.getTree(
+                "Target.Memory.Pools.Heap.Partitions." + key + ".Classes",
+            );
+            for (const [classKey, classValue] of Object.entries(
+                classes.members,
+            )) {
                 if (classKey in ret) {
                     ret[classKey] += classValue.value.value;
                 } else {
