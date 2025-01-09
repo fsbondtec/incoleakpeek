@@ -7,6 +7,9 @@
           <span class="title-text">My Custom Title</span>
         </v-col>
         <v-col cols="auto" class="titlebar-buttons">
+          <v-btn icon @click="toggleDarkMode">
+            <v-icon>mdi-theme-light-dark</v-icon>
+          </v-btn>
           <v-btn icon @click="minimizeWindow">
             <v-icon>mdi-window-minimize</v-icon>
           </v-btn>
@@ -41,35 +44,33 @@
   </v-app>
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue';
+import { useTheme } from 'vuetify'
 import '@mdi/font/css/materialdesignicons.css';
 
 import ClassOverviewTab from './components/ClassOverviewTab.vue';
 import PerformanceTab from './components/PerformanceTab.vue';
 
-export default {
-  name: 'App',
-  components: {
-    ClassOverviewTab,
-    PerformanceTab,
-  },
-  data() {
-    return {
-      activeTab: 0
-    };
-  },
-  methods: {
-      minimizeWindow() {
-        if (window.electron) window.electron.minimizeWindow();
-      },
-      maximizeWindow() {
-        if (window.electron) window.electron.maximizeWindow();
-      },
-      closeWindow() {
-        if (window.electron) window.electron.closeWindow();
-      },
-    },
-};
+const activeTab = ref(0);
+
+const theme = useTheme()
+
+function toggleDarkMode() {
+  theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark';
+}
+
+function minimizeWindow() {
+  if (window.electron) window.electron.minimizeWindow();
+}
+
+function maximizeWindow() {
+  if (window.electron) window.electron.maximizeWindow();
+}
+
+function closeWindow() {
+  if (window.electron) window.electron.closeWindow();
+}
 </script>
 
 <style scoped>
@@ -79,7 +80,7 @@ export default {
   left: 0;
   width: 100%;
   height: 50px; /* Höhe der Titelleiste */
-  background-color: #282c34;
+  background-color: v-bind(theme.global.current.value.dark ? '#1e1e1e' : '#282c34');
   color: white;
   z-index: 1000;
   -webkit-app-region: drag; /* Ermöglicht das Verschieben des Fensters */
