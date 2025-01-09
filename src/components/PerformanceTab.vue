@@ -6,25 +6,21 @@
             :options="chartOptions1"
             :series="series1"
         ></apexchart>
-        <apexchart
-            type="line"
-            height="350"
-            :options="chartOptions2"
-            :series="series2"
-        ></apexchart>
     </v-container>
 </template>
 
 <script setup>
-import { ref, watch } from "vue";
+import { ref, watch, onMounted, onBeforeUnmount } from "vue";
 import { useTheme } from "vuetify";
+import { incousedmem, incototalmem } from "../incoconnection.js";
+let intervalId = null;
 
 const theme = useTheme();
 
 const series1 = ref([
     {
-        name: "Dataset 1",
-        data: [65, 59, 80, 81, 56, 55, 40],
+        name: "RAM (Byte)",
+        data: [],
     },
 ]);
 
@@ -32,60 +28,42 @@ const chartOptions1 = ref({
     chart: {
         height: 350,
         type: "line",
+        toolbar: {
+            show: false,
+        },
     },
     title: {
-        text: "Chart 1",
+        text: "RAM Usage",
         align: "left",
-    },
-    xaxis: {
-        categories: [
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-        ],
-    },
-});
-
-const series2 = ref([
-    {
-        name: "Dataset 2",
-        data: [28, 48, 40, 19, 86, 27, 90],
-    },
-]);
-
-const chartOptions2 = ref({
-    chart: {
-        height: 350,
-        type: "line",
-    },
-    title: {
-        text: "Chart 2",
-        align: "left",
-    },
-    xaxis: {
-        categories: [
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-        ],
-    },
+    }
 });
 
 watch(
     () => theme.global.current.value.dark,
     (newVal) => {
         chartOptions1.value = updateChartThemeMode(chartOptions1.value, newVal);
-        chartOptions2.value = updateChartThemeMode(chartOptions2.value, newVal);
     },
 );
+
+const updateMemoryUsage = () => {
+    incousedmem().then((usedmem) => {
+        const currentTime = new Date().toLocaleTimeString();
+        series1.value[0].data.push({ x: currentTime, y: usedmem });
+        if (series1.value[0].data.length > 60) {
+            series1.value[0].data.shift();
+        }
+    });
+};
+
+onMounted(() => {
+    intervalId = setInterval(updateMemoryUsage, 1000); // Aktualisierung alle 5 Sekunden
+});
+
+onBeforeUnmount(() => {
+    if (intervalId) {
+        clearInterval(intervalId);
+    }
+});
 
 // https://github.com/apexcharts/ng-apexcharts/issues/228#issuecomment-2392632549
 function updateChartThemeMode(chartOptions, darkMode) {
