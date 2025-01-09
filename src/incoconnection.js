@@ -1,6 +1,15 @@
+import dummyData from './dummy_data.json';
+
+let NOHARDWARE = true;
+
 let session = null;
 
 export async function incoconnect(url) {
+    if (NOHARDWARE) {
+        console.log("run in nohardware mode");
+        return;
+    }
+
     if (session) {
         console.log("INCO V Session already open");
         return;
@@ -15,6 +24,10 @@ export async function incoconnect(url) {
 }
 
 export function incodisconnect() {
+    if (NOHARDWARE) {
+        return;
+    }
+
     if (session) {
         try {
             session.destroy();
@@ -26,6 +39,14 @@ export function incodisconnect() {
 }
 
 export async function incoclassmemusage() {
+    if (NOHARDWARE) {
+        ret = dummyData;
+        for (const key in ret) {
+            ret[key] += Math.floor(Math.random() * 100);
+        }
+        return ret;
+    }
+
     var ret = new Object();
     if (!session) {
         console.log("INCO V Session not open");
@@ -59,9 +80,19 @@ export async function incoclassmemusage() {
 }
 
 export async function incototalmem() {
+    if (NOHARDWARE) {
+        ret = Math.floor(Math.random() * 1000);
+        return ret;
+    }
+
     return await session.getVariable("Target.Memory.Pools.Heap.Size");
 }
 
 export async function incousedmem() {
+    if (NOHARDWARE) {
+        ret = Math.floor(Math.random() * 1000);
+        return ret;
+    }
+
     return await session.getVariable("Target.Memory.Pools.Heap.FreeSize");
 }

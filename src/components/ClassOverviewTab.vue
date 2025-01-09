@@ -1,27 +1,31 @@
 <template>
     <v-container>
-        <v-data-table :headers="headers" :items="items" class="elevation-1">
+        <v-text-field v-model="search" label="Search" class="mb-4"></v-text-field>
+        <v-data-table :headers="headers" :items="filteredItems" class="elevation-1">
         </v-data-table>
     </v-container>
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from "vue";
+import { ref, onMounted, onBeforeUnmount, computed } from "vue";
 import { incoclassmemusage } from "../incoconnection.js";
 
-const headers = [
-    { text: "Class Name", value: "name", sortable: true },
-    { text: "RAM (Byte)", value: "memory", sortable: true },
-];
-
-const items = ref([
-    { name: "chrome.exe", memory: 1200 },
-    { name: "explorer.exe", memory: 300 },
-    { name: "error.exe", memory: 700 },
-    { name: "python.exe", memory: 500 },
+const headers = ref([
+    { title: "Class Name", key: "name" },
+    { title: "RAM (Byte)", key: "memory" },
 ]);
 
+const items = ref([]);
+
+const search = ref("");
+
 let intervalId = null;
+
+const filteredItems = computed(() =>
+  items.value.filter(
+    (item) => item.name.toLowerCase().includes(search.value.toLowerCase())
+  )
+);
 
 const updateMemoryUsage = () => {
     incoclassmemusage().then((incoClasses) => {
@@ -34,7 +38,6 @@ const updateMemoryUsage = () => {
         } else {
             console.error("Invalid data received from getClassMemUseage");
         }
-        console.log(items.value);
     });
 };
 
