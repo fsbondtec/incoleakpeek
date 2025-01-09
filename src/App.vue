@@ -45,12 +45,13 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 import { useTheme } from 'vuetify'
 import '@mdi/font/css/materialdesignicons.css';
 
 import ClassOverviewTab from './components/ClassOverviewTab.vue';
 import PerformanceTab from './components/PerformanceTab.vue';
+import { incoconnect, incodisconnect } from './incoconnection.js';
 
 const activeTab = ref(0);
 
@@ -71,6 +72,14 @@ function maximizeWindow() {
 function closeWindow() {
   if (window.electron) window.electron.closeWindow();
 }
+
+onMounted(() => {
+  incoconnect("http://192.168.1.251:80");
+})
+
+onBeforeUnmount(() => {
+  incodisconnect();
+})
 </script>
 
 <style scoped>
