@@ -3,7 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <title>Hello World!</title>
-  </head>
+    <style>
+      /* Scrollen erlauben, aber Scrollbar von html/body ausblenden */
+      html, body {
+        overflow: hidden; /* Verhindert Scrollen und blendet die Scrollbars aus */
+        height: 100%; /* Stellt sicher, dass die Root-Ebene 100% Höhe hat */
+        margin: 0; /* Entfernt unerwünschte Standardabstände */
+      }
+
+      html::-webkit-scrollbar, body::-webkit-scrollbar {
+        display: none; /* Nur die Root-Scrollbar unsichtbar machen */
+      }
+    </style>
+</head>
   <body>
     <div id="app"></div>
     <script type="module" src="/src/renderer.js"></script>
