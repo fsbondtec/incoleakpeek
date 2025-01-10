@@ -20,16 +20,17 @@
 
         <!-- Main content -->
         <v-main>
-            <v-container>
-                <apexchart
-                    type="line"
-                    height="350"
-                    :options="chartOptions"
-                    :series="series"
-                ></apexchart>
-                <v-text-field v-model="search" label="Search" class="mb-4"></v-text-field>
-                <v-data-table :headers="headers" :items="filteredItems" class="elevation-1"></v-data-table>
-            </v-container>
+            <apexchart
+                type="line"
+                height="260"
+                :options="chartOptions"
+                :series="series"
+            ></apexchart>
+            <v-data-table :headers="headers" :items="filteredItems">
+                <template v-slot:top>
+                    <v-text-field v-model="search" label="Search"></v-text-field>
+                </template>
+            </v-data-table>
         </v-main>
     </v-app>
 </template>
@@ -76,15 +77,10 @@ const series = ref([
 
 const chartOptions = ref({
     chart: {
-        height: 350,
         type: "line",
         toolbar: {
             show: false,
         },
-    },
-    title: {
-        text: "RAM Usage",
-        align: "left",
     },
     xaxis: {
         type: 'numeric',
@@ -92,7 +88,16 @@ const chartOptions = ref({
         tickAmount: 1, // Only first and last ticks
         labels: {
             formatter: function (val, timestamp) {
-                return Math.round((new Date().getTime() - timestamp) / 1000);
+                var ret = Math.round((new Date().getTime() - timestamp) / 1000);
+                if (ret === 0) {
+                    return "0";
+                }
+                else if (ret === 60) {
+                    return `${ret}s`;
+                }
+                else {
+                    return "";
+                }
             },
         },
     },
@@ -101,7 +106,20 @@ const chartOptions = ref({
         opposite: true,
         min: 0,
         max: totalmem,
-        tickAmount: 1, // Only first and last ticks
+        tickAmount: 10,
+        labels: {
+            formatter: function (val, index) {
+                if (val === 0) {
+                    return "0";
+                }
+                else if(val === totalmem.value) {
+                    return `${val}kB`;
+                }
+                else {
+                    return "";
+                }
+            },
+        },
     },
 });
 
@@ -226,8 +244,8 @@ function updateChartThemeMode(chartOptions, darkMode) {
     -webkit-app-region: no-drag; /* Buttons nicht verschiebbar */
 }
 
-.v-container {
-    max-height: calc(100vh - 150px); /* Maximale Höhe des Inhaltsbereichs */
+.v-main {
+    max-height: calc(100vh - 48px); /* Maximale Höhe des Inhaltsbereichs */
     overflow: auto; /* Scrollbar nur bei Bedarf */
 }
 </style>
