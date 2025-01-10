@@ -13,7 +13,10 @@
 import { ref, watch, onMounted, onBeforeUnmount } from "vue";
 import { useTheme } from "vuetify";
 import { incousedmem, incototalmem } from "../incoconnection.js";
+
 let intervalId = null;
+
+const totalmem = ref(1);
 
 const theme = useTheme();
 
@@ -35,7 +38,24 @@ const chartOptions1 = ref({
     title: {
         text: "RAM Usage",
         align: "left",
-    }
+    },
+    xaxis: {
+        type: 'numeric',
+        range: 60000, // 60 seconds
+        tickAmount: 1, // Only first and last ticks
+        labels: {
+            formatter: function (val, timestamp) {
+                return Math.round((new Date().getTime() - timestamp) / 1000);
+            },
+        },
+    },
+    yaxis: {
+        type: 'numeric',
+        opposite: true,
+        min: 0,
+        max: totalmem,
+        tickAmount: 1, // Only first and last ticks
+    },
 });
 
 watch(
@@ -47,15 +67,15 @@ watch(
 
 const updateMemoryUsage = () => {
     incousedmem().then((usedmem) => {
-        const currentTime = new Date().toLocaleTimeString();
+        const currentTime = new Date().getTime();
         series1.value[0].data.push({ x: currentTime, y: usedmem });
-        if (series1.value[0].data.length > 60) {
-            series1.value[0].data.shift();
-        }
     });
 };
 
 onMounted(() => {
+    incototalmem().then((total) => {
+        totalmem.value = total;
+    });
     intervalId = setInterval(updateMemoryUsage, 1000); // Aktualisierung alle 5 Sekunden
 });
 

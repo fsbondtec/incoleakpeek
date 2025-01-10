@@ -13,6 +13,8 @@ import { incoclassmemusage } from "../incoconnection.js";
 const headers = ref([
     { title: "Class Name", key: "name" },
     { title: "RAM (Byte)", key: "memory" },
+    { title: "Delta (Byte)", key: "deltab" },
+    { title: "Delta (%)", key: "deltap" },
 ]);
 
 const items = ref([]);
@@ -30,9 +32,13 @@ const filteredItems = computed(() =>
 const updateMemoryUsage = () => {
     incoclassmemusage().then((incoClasses) => {
         if (incoClasses && typeof incoClasses === "object") {
+            var old = items.value;
             items.value = [];
             for (const [classKey, classValue] of Object.entries(incoClasses)) {
-                var cla = { name: classKey, memory: classValue };
+                var oldItem = old.find(item => item.name === classKey);
+                var deltab = oldItem ? classValue - oldItem.memory : 0;
+                var deltap = oldItem ? (deltab / oldItem.memory) * 100 : 0;
+                var cla = { name: classKey, memory: classValue, deltab: deltab, deltap: deltap.toFixed(2) };
                 items.value.push(cla);
             }
         } else {

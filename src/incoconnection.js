@@ -82,7 +82,7 @@ export async function incoclassmemusage() {
 
 export async function incototalmem() {
     if (NOHARDWARE) {
-        return Math.floor(Math.random() * 1000);
+        return 128;
     }
 
     return await session.getVariable("Target.Memory.Pools.Heap.Size");
@@ -90,7 +90,7 @@ export async function incototalmem() {
 
 export async function incousedmem() {
     if (NOHARDWARE) {
-        return Math.floor(Math.random() * 1000);
+        return Math.floor(Math.random() * 128);
     }
 
     return await session.getVariable("Target.Memory.Pools.Heap.FreeSize");
