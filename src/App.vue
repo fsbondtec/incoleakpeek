@@ -1,49 +1,86 @@
 <template>
     <v-app>
-        <!-- Custom Titlebar -->
-        <v-toolbar density="compact">
-            <v-toolbar-title>IncoLeakPeek</v-toolbar-title>
+        <!-- Custom Titlebar (hat eine hoehe von 48px) -->
+        <v-app-bar density="compact" class="drag">
+            <v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer" class="nodrag"></v-app-bar-nav-icon>
+            <v-app-bar-title>IncoLeakPeek</v-app-bar-title>
             <v-spacer></v-spacer>
-            <v-btn icon @click="toggleDarkMode">
+            <v-text-field
+                v-model="search"
+                label="Search"
+                prepend-inner-icon="mdi-magnify"
+                hide-details
+                single-line
+                class="nodrag"
+            ></v-text-field>
+            <v-spacer></v-spacer>
+            <v-select
+                v-model="selectedInterval"
+                :items="intervalOptions"
+                label="Update Interval"
+                class="nodrag"
+                hide-details
+                single-line
+                @change="changeInterval"
+            />
+            <v-spacer></v-spacer>
+            <v-btn icon @click="toggleDarkMode" class="nodrag">
                 <v-icon>mdi-theme-light-dark</v-icon>
             </v-btn>
-            <v-btn icon @click="minimizeWindow">
+            <v-btn icon @click="minimizeWindow" class="nodrag">
                 <v-icon>mdi-window-minimize</v-icon>
             </v-btn>
-            <v-btn icon @click="maximizeWindow">
+            <v-btn icon @click="maximizeWindow" class="nodrag">
                 <v-icon>mdi-window-maximize</v-icon>
             </v-btn>
-            <v-btn icon @click="closeWindow">
+            <v-btn icon @click="closeWindow" class="nodrag">
                 <v-icon>mdi-window-close</v-icon>
             </v-btn>
-        </v-toolbar>
+        </v-app-bar>
+
+        <!-- Navigation Drawer -->
+        <v-navigation-drawer
+            v-model="drawer"
+            temporary
+        >
+            <v-list>
+                <v-list-item prepend-icon="mdi-content-save" title="Save File" @click="saveFile"></v-list-item>
+                <v-list-item prepend-icon="mdi-folder-open" title="Load File" @click="loadFile"></v-list-item>
+                <v-list-item prepend-icon="mdi-exit-run" title="Exit" @click="closeWindow"></v-list-item>
+            </v-list>
+        </v-navigation-drawer>
 
         <!-- Main content -->
         <v-main>
+            <v-data-table-virtual
+                :headers="headers"
+                :items="items"
+                :search="search"
+                height="calc(70vh - 48px)"
+                fixed-header
+            ></v-data-table-virtual>
             <apexchart
                 type="line"
-                height="260"
+                height="30%"
                 :options="chartOptions"
                 :series="series"
             ></apexchart>
-            <v-data-table :headers="headers" :items="filteredItems">
-                <template v-slot:top>
-                    <v-text-field v-model="search" label="Search"></v-text-field>
-                </template>
-            </v-data-table>
         </v-main>
     </v-app>
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount, watch, computed } from "vue";
+import { ref, onMounted, onBeforeUnmount, watch } from "vue";
 import { useTheme } from "vuetify";
 import "@mdi/font/css/materialdesignicons.css";
 
 import { incoconnect, incodisconnect, incoclassmemusage, incousedmem, incototalmem } from "./incoconnection.js";
+import { updateChartThemeMode } from "./apexcharts_patch.js";
 
 let intervalId = null;
 let intervalCounter = 0;
+
+const drawer = ref(false);
 
 const totalmem = ref(1);
 const membegin = ref({});
@@ -123,12 +160,6 @@ const chartOptions = ref({
     },
 });
 
-const filteredItems = computed(() =>
-  items.value.filter(
-    (item) => item.name.toLowerCase().includes(search.value.toLowerCase())
-  )
-);
-
 const updateMemoryUsage = () => {
     incousedmem().then((usedmem) => {
         const currentTime = new Date().getTime();
@@ -166,10 +197,16 @@ const updateMemoryUsage = () => {
     });
 };
 
+function saveFile() {
+    console.log("saveFile");
+}
+
+function loadFile() {
+    console.log("loadFile");
+}
+
 function toggleDarkMode() {
-    theme.global.name.value = theme.global.current.value.dark
-        ? "light"
-        : "dark";
+    theme.global.name.value = theme.global.current.value.dark ? "light" : "dark";
 }
 
 function minimizeWindow() {
@@ -204,48 +241,14 @@ onBeforeUnmount(() => {
     incodisconnect();
 });
 
-// https://github.com/apexcharts/ng-apexcharts/issues/228#issuecomment-2392632549
-function updateChartThemeMode(chartOptions, darkMode) {
-    const theme = chartOptions.theme;
-    const tooltip = chartOptions.tooltip;
-    const chart = chartOptions.chart;
-
-    // Create a new chart options object to avoid mutating the original object.
-    chartOptions = {
-        ...chartOptions,
-        chart: {
-            ...chart,
-            // Update the foreground color and background color based on the theme mode.
-            foreColor: darkMode ? "#f6f7f8" : "undefined",
-            background: darkMode ? "#424242" : "undefined",
-        },
-        theme: {
-            ...theme,
-            // Update the theme mode.
-            mode: darkMode ? "dark" : "light",
-        },
-        tooltip: {
-            ...tooltip,
-            // Update the tooltip theme based on the theme mode.
-            theme: darkMode ? "dark" : "light",
-        },
-    };
-
-    return chartOptions;
-}
 </script>
 
 <style scoped>
-.v-toolbar {
-    -webkit-app-region: drag; /* Ermöglicht das Verschieben des Fensters */
+.drag {
+    -webkit-app-region: drag;
 }
 
-.v-btn {
-    -webkit-app-region: no-drag; /* Buttons nicht verschiebbar */
-}
-
-.v-main {
-    max-height: calc(100vh - 48px); /* Maximale Höhe des Inhaltsbereichs */
-    overflow: auto; /* Scrollbar nur bei Bedarf */
+.nodrag {
+    -webkit-app-region: no-drag;
 }
 </style>
