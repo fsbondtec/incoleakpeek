@@ -185,15 +185,19 @@ function closeWindow() {
 }
 
 onMounted(() => {
-    incoconnect("http://192.168.1.251:80");
-    incototalmem().then((total) => {
-        totalmem.value = total;
+    incoconnect("http://192.168.1.251:80").then(() => {
+        console.log("Connected to IncoServer");
+        incototalmem().then((total) => {
+            console.log("Total Memory: " + total);
+            totalmem.value = total;
+        });
+        incoclassmemusage().then((incoClasses) => {
+            for (const [classKey, classValue] of Object.entries(incoClasses)) {
+                membegin.value[classKey] = classValue;
+            }
+        });
     });
-    incoclassmemusage().then((incoClasses) => {
-        for (const [classKey, classValue] of Object.entries(incoClasses)) {
-            membegin.value[classKey] = classValue;
-        }
-    });
+
     intervalId = setInterval(updateMemoryUsage, 1000); // Aktualisierung alle 1 Sekunden
 });
 

@@ -1,6 +1,6 @@
 import dummyData from './dummy_data.json';
 
-let NOHARDWARE = true;
+let NOHARDWARE = false;
 
 let session = null;
 
@@ -17,7 +17,12 @@ export async function incoconnect(url) {
 
     try {
         session = await incov.createSession(url);
-        console.log("Oida voi cool connected");
+        console.log("Connected To INCO V");
+
+        session.getVariable("Target.Cpu").then((result) => {
+            console.log("Indel CPU Type: " + result.value.value);
+            return;
+        });
     } catch (error) {
         console.error("Creating INCOV session failed: " + error);
     }
@@ -85,7 +90,9 @@ export async function incototalmem() {
         return 128;
     }
 
-    return await session.getVariable("Target.Memory.Pools.Heap.Size");
+    return session.getVariable("Target.Memory.Pools.Heap.Size").then((size) => {
+        return size.value.value / 1000;
+    });
 }
 
 export async function incousedmem() {
@@ -93,5 +100,9 @@ export async function incousedmem() {
         return Math.floor(Math.random() * 128);
     }
 
-    return await session.getVariable("Target.Memory.Pools.Heap.FreeSize");
+    return session.getVariable("Target.Memory.Pools.Heap.FreeSize").then((freeSize) => {
+        return session.getVariable("Target.Memory.Pools.Heap.Size").then((size) => {
+            return (size.value.value - freeSize.value.value) / 1000;
+        });
+    });
 }
