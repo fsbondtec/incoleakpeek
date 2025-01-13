@@ -63,4 +63,16 @@ module.exports = {
             [FuseV1Options.OnlyLoadAppFromAsar]: true,
         }),
     ],
+    publishers: [
+        {
+            name: '@electron-forge/publisher-github',
+            config: {
+                repository: {
+                    owner: 'fsbondtec',
+                    name: 'incoleakpeek'
+                },
+                prerelease: true
+            }
+        }
+    ],
 };
