@@ -69,7 +69,7 @@
                 <v-list-item prepend-icon="mdi-exit-run" title="Exit" @click="closeWindow"></v-list-item>
                 <v-divider></v-divider>
                 <v-list-item>
-                    <v-switch label="Dark Mode" v-model="theme.global.current.value.dark" margin-left="20px" @change="toggleDarkMode"></v-switch>
+                    <v-switch label="Dark Mode" v-model="theme.global.current.value.dark" margin-left="20px"></v-switch>
                 </v-list-item>
             </v-list>
         </v-navigation-drawer>
@@ -89,7 +89,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount, watch, useTemplateRef } from "vue";
+import { ref, onMounted, onBeforeUnmount, watch } from "vue";
 import { useTheme } from "vuetify";
 import "@mdi/font/css/materialdesignicons.css";
 import { incoconnect, incodisconnect, incoclassmemusage, incousedmem, incototalmem, incoallocatedmem } from "./incoconnection.js";
@@ -109,11 +109,6 @@ const totalmem = ref(1);
 const membegin = ref({});
 
 const theme = useTheme();
-// watch(() => theme.global.current.value.dark,
-//     (newVal) => {
-//         chartOptions.value = updateChartThemeMode(chartOptions.value, newVal);
-//     }
-// );
 
 const search = ref("");
 
