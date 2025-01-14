@@ -1,6 +1,7 @@
-import { app, BrowserWindow, ipcMain } from "electron";
+import { app, BrowserWindow, ipcMain, dialog } from "electron";
 import path from "node:path";
 import started from "electron-squirrel-startup";
+import fs from "fs";
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (started) {
@@ -12,8 +13,8 @@ let mainWindow;
 const createWindow = () => {
     // Create the browser window.
     mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600,
+        width: 1024,
+        height: 720,
         frame: false, // Standard-Titelleiste entfernen
         webPreferences: {
             preload: path.join(__dirname, "preload.js"),
@@ -32,7 +33,6 @@ const createWindow = () => {
             ),
         );
     }
-
     // Open the DevTools.
     mainWindow.webContents.openDevTools();
 };
@@ -71,3 +71,31 @@ ipcMain.on("maximize-window", () => {
     }
 });
 ipcMain.on("close-window", () => mainWindow.close());
+
+ipcMain.handle("show-save-dialog", async (event, options) => {
+    const result = await dialog.showSaveDialog(options);
+    return result; 
+});
+
+ipcMain.handle("show-open-dialog", async (event, options) => {
+    const result = await dialog.showOpenDialog(options);
+    return result;
+});
+
+ipcMain.handle("write-file", async (event, filePath, data) => {
+    try {
+        await fs.promises.writeFile(filePath, data, "utf-8");
+        return { success: true };
+    } catch (error) {
+        return { success: false, error: error.message };
+    }
+});
+
+ipcMain.handle("read-file", async (event, filePath) => {
+    try {
+        const data = await fs.promises.readFile(filePath, "utf-8");
+        return { success: true, data };
+    } catch (error) {
+        return { success: false, error: error.message };
+    }
+});

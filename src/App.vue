@@ -1,41 +1,61 @@
 <template>
     <v-app>
-        <!-- Custom Titlebar (hat eine hoehe von 48px) -->
         <v-app-bar density="compact" class="drag">
             <v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer" class="nodrag"></v-app-bar-nav-icon>
-            <v-app-bar-title>IncoLeakPeek</v-app-bar-title>
-            <v-spacer></v-spacer>
-            <v-text-field
-                v-model="search"
-                label="Search"
-                prepend-inner-icon="mdi-magnify"
-                hide-details
-                single-line
-                class="nodrag"
-            ></v-text-field>
-            <v-spacer></v-spacer>
-            <v-select
-                v-model="selectedInterval"
-                :items="intervalOptions"
-                label="Update Interval"
-                class="nodrag"
-                hide-details
-                single-line
-                @change="changeInterval"
-            />
-            <v-spacer></v-spacer>
-            <v-btn icon @click="toggleDarkMode" class="nodrag">
-                <v-icon>mdi-theme-light-dark</v-icon>
-            </v-btn>
-            <v-btn icon @click="minimizeWindow" class="nodrag">
-                <v-icon>mdi-window-minimize</v-icon>
-            </v-btn>
-            <v-btn icon @click="maximizeWindow" class="nodrag">
-                <v-icon>mdi-window-maximize</v-icon>
-            </v-btn>
-            <v-btn icon @click="closeWindow" class="nodrag">
-                <v-icon>mdi-window-close</v-icon>
-            </v-btn>
+            <v-container class="d-flex justify-center">
+                <v-row align="center">
+                    <v-col cols="2">
+                        <v-app-bar-title>IncoLeakPeek</v-app-bar-title>
+                    </v-col>
+                    <v-spacer></v-spacer>
+                    <v-col cols="1" class="nodrag">
+                        <v-btn icon @click="toggleRecord" variant="flat">
+                            <v-icon>{{ isRecording ? 'mdi-stop' : 'mdi-play' }}</v-icon>
+                        </v-btn>
+                    </v-col>
+                    <v-col cols="4">
+                        <v-text-field
+                            v-model="search"
+                            label="Search"
+                            append-inner-icon="mdi-magnify"
+                            density="compact"
+                            hide-details
+                            single-line
+                            class="nodrag"
+                        ></v-text-field>
+                    </v-col>
+                    <v-col cols="1"></v-col>
+                    <v-spacer></v-spacer>
+                    <v-col cols="2">
+                        <v-select
+                            v-model="selectInterval"
+                            :items="options"
+                            label="Interval"
+                            density="compact"
+                            hide-details
+                            class="nodrag"
+                            :disabled="isRecording"
+                        ></v-select>
+                    </v-col>
+                </v-row>
+            </v-container>
+            <div class="titlebar-buttons">
+                <button aria-label="minimize" title="Minimize" tabindex="-1" @click="minimizeWindow">
+                    <svg aria-hidden="true" version="1.1" width="10" height="10">
+                        <path d="M 0,5 10,5 10,6 0,6 Z"></path>
+                    </svg>
+                </button>
+                <button aria-label="maximize" title="Maximize" tabindex="-1" @click="maximizeWindow">
+                    <svg aria-hidden="true" version="1.1" width="10" height="10">
+                        <path d="M 0,0 0,10 10,10 10,0 Z M 1,1 9,1 9,9 1,9 Z"></path>
+                    </svg>
+                </button>
+                <button aria-label="close" title="Close" tabindex="-1" class="close" @click="closeWindow">
+                    <svg aria-hidden="true" version="1.1" width="10" height="10">
+                        <path d="M 0,0 0,0.7 4.3,5 0,9.3 0,10 0.7,10 5,5.7 9.3,10 10,10 10,9.3 5.7,5 10,0.7 10,0 9.3,0 5,4.3 0.7,0 Z"></path>
+                    </svg>
+                </button>
+            </div>
         </v-app-bar>
 
         <!-- Navigation Drawer -->
@@ -43,10 +63,14 @@
             v-model="drawer"
             temporary
         >
-            <v-list>
+            <v-list height="100%">
                 <v-list-item prepend-icon="mdi-content-save" title="Save File" @click="saveFile"></v-list-item>
                 <v-list-item prepend-icon="mdi-folder-open" title="Load File" @click="loadFile"></v-list-item>
                 <v-list-item prepend-icon="mdi-exit-run" title="Exit" @click="closeWindow"></v-list-item>
+                <v-divider></v-divider>
+                <v-list-item>
+                    <v-switch label="Dark Mode" v-model="theme.global.current.value.dark" margin-left="20px"></v-switch>
+                </v-list-item>
             </v-list>
         </v-navigation-drawer>
 
@@ -59,12 +83,7 @@
                 height="calc(70vh - 48px)"
                 fixed-header
             ></v-data-table-virtual>
-            <apexchart
-                type="line"
-                height="30%"
-                :options="chartOptions"
-                :series="series"
-            ></apexchart>
+            <v-chart class="memoryChart" :option="chartOptions" style="height: 30%;" autoresize />
         </v-main>
     </v-app>
 </template>
@@ -73,12 +92,16 @@
 import { ref, onMounted, onBeforeUnmount, watch } from "vue";
 import { useTheme } from "vuetify";
 import "@mdi/font/css/materialdesignicons.css";
+import { incoconnect, incodisconnect, incoclassmemusage, incousedmem, incototalmem, incoallocatedmem } from "./incoconnection.js";
 
-import { incoconnect, incodisconnect, incoclassmemusage, incousedmem, incototalmem } from "./incoconnection.js";
-import { updateChartThemeMode } from "./apexcharts_patch.js";
+import { use } from 'echarts/core'
+import { LineChart } from 'echarts/charts'
+import { TooltipComponent, GridComponent } from 'echarts/components'
+import { CanvasRenderer } from 'echarts/renderers'
+import VChart, { THEME_KEY } from 'vue-echarts';
+use([TooltipComponent, GridComponent, LineChart, CanvasRenderer])
 
 let intervalId = null;
-let intervalCounter = 0;
 
 const drawer = ref(false);
 
@@ -86,11 +109,6 @@ const totalmem = ref(1);
 const membegin = ref({});
 
 const theme = useTheme();
-watch(() => theme.global.current.value.dark,
-    (newVal) => {
-        chartOptions.value = updateChartThemeMode(chartOptions.value, newVal);
-    }
-);
 
 const search = ref("");
 
@@ -113,62 +131,112 @@ const series = ref([
 ]);
 
 const chartOptions = ref({
-    chart: {
-        type: "line",
-        toolbar: {
-            show: false,
-        },
+    color: ['#4dc3ff', '#ff614d'],
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'line',
+            label: {
+                backgroundColor: '#6a7985'
+            }
+        }
     },
-    xaxis: {
-        type: 'numeric',
-        range: 60000, // 60 seconds
-        tickAmount: 1, // Only first and last ticks
-        labels: {
-            formatter: function (val, timestamp) {
-                var ret = Math.round((new Date().getTime() - timestamp) / 1000);
-                if (ret === 0) {
-                    return "0";
-                }
-                else if (ret === 60) {
-                    return `${ret}s`;
-                }
-                else {
-                    return "";
-                }
+    grid: {
+        left: '1%',
+        right: '1%',
+        bottom: '1%',
+        containLabel: true
+    },
+    xAxis: [
+        {
+            type: 'category',
+            boundaryGap: false,
+            splitNumber: 10,
+            data: [],
+        }
+    ],
+    yAxis: [
+        {
+            type: 'value',
+            splitNumber: 4,
+        }
+    ],
+    series: [
+        {
+            name: 'UsedMemory',
+            type: 'line',
+            stack: 'Total',
+            smooth: true,
+            lineStyle: {
+                width: 0
             },
-        },
-    },
-    yaxis: {
-        type: 'numeric',
-        opposite: true,
-        min: 0,
-        max: totalmem,
-        tickAmount: 10,
-        labels: {
-            formatter: function (val, index) {
-                if (val === 0) {
-                    return "0";
-                }
-                else if(val === totalmem.value) {
-                    return `${val}kB`;
-                }
-                else {
-                    return "";
-                }
+            showSymbol: false,
+            areaStyle: {
+                opacity: 0.8,
             },
+            data: []
         },
-    },
+        {
+            name: 'AllocatedMemory',
+            type: 'line',
+            stack: 'Total',
+            smooth: true,
+            lineStyle: {
+                width: 0
+            },
+            showSymbol: false,
+            areaStyle: {
+                opacity: 0.8,
+            },
+            data: []
+        },
+    ]
 });
 
-const updateMemoryUsage = () => {
-    incousedmem().then((usedmem) => {
-        const currentTime = new Date().getTime();
-        series.value[0].data.push({ x: currentTime, y: usedmem });
-    });
+const selectInterval = ref(10000);
+const options = ref([
+    { title: '1 second', value: 1000 },
+    { title: '5 seconds', value: 5000 },
+    { title: '10 seconds', value: 10000 },
+    { title: '30 seconds', value: 30000 },
+    { title: '60 seconds', value: 60000 },
+]);
 
-    if (intervalCounter++ % 5 !== 0) {
+watch(selectInterval, (newInterval) => {
+    if (intervalId) {
+        clearInterval(intervalId);
+    }
+    intervalId = setInterval(updateMemoryUsage, newInterval);
+});
+
+const isRecording = ref(false);
+
+function toggleRecord() {
+    isRecording.value = !isRecording.value;
+    if (isRecording.value) {
+        console.log("Recording started");
+        series.value[0].data = [];
+        items.value = [];
+        chartOptions.value.yAxis[0].max = totalmem.value;
+        chartOptions.value.yAxis[0].interval = totalmem.value / 4;
+    } else {
+        console.log("Recording stopped");
+    }
+}
+
+const updateMemoryUsage = () => {
+    if (!isRecording.value) {
         return;
     }
+
+    incousedmem().then((usedmem) => {
+        const currentTime = new Date().toLocaleTimeString('en-US', { hour12: false });
+        incoallocatedmem().then((allocatedmem) => {
+            chartOptions.value.xAxis[0].data.push(currentTime);
+            chartOptions.value.series[0].data.push(usedmem);
+            chartOptions.value.series[1].data.push(allocatedmem);
+        });
+    });
 
     incoclassmemusage().then((incoClasses) => {
         if (incoClasses && typeof incoClasses === "object") {
@@ -197,15 +265,48 @@ const updateMemoryUsage = () => {
     });
 };
 
-function saveFile() {
-    console.log("saveFile");
+async function saveFile() {
+    const result = await window.electron.showSaveDialog({
+        title: "Save a file",
+        filters: [{ name: "Inco Leak Peak Files", extensions: ["ilp"] }],
+    });
+
+    if (!result.canceled) {
+        console.log("Selected path:", result.filePath);
+        const saveFileData = {
+            totalmem: totalmem.value,
+            membegin: membegin.value,
+            series: series.value,
+            items: items.value,
+        };
+        const jsonData = JSON.stringify(saveFileData);
+        await window.electron.writeFile(result.filePath, jsonData);
+    } else {
+        console.log("User canceled the save dialog.");
+    }
 }
 
 function loadFile() {
-    console.log("loadFile");
+    window.electron.showOpenDialog({
+        title: "Open a file",
+        filters: [{ name: "Inco Leak Peak Files", extensions: ["ilp"] }],
+    }).then(async (result) => {
+        if (!result.canceled) {
+            console.log("Selected path:", result.filePaths[0]);
+            const jsonData = await window.electron.readFile(result.filePaths[0]);
+            const data = JSON.parse(jsonData.data);
+            totalmem.value = data.totalmem;
+            membegin.value = data.membegin;
+            series.value = data.series;
+            items.value = data.items;
+        } else {
+            console.log("User canceled the open dialog.");
+        }
+    });
 }
 
 function toggleDarkMode() {
+    localStorage.setItem("darkMode", theme.global.current.value.dark);
     theme.global.name.value = theme.global.current.value.dark ? "light" : "dark";
 }
 
@@ -235,7 +336,14 @@ onMounted(() => {
         });
     });
 
-    intervalId = setInterval(updateMemoryUsage, 1000); // Aktualisierung alle 1 Sekunden
+    const savedDarkMode = localStorage.getItem('darkMode');
+    if (savedDarkMode !== null) {
+      const isDark = savedDarkMode === 'true';
+      theme.global.current.value.dark = isDark;
+      theme.global.name.value = isDark ? 'light' : 'dark';
+    }
+
+    intervalId = setInterval(updateMemoryUsage, selectInterval.value); // Use selectInterval value
 });
 
 onBeforeUnmount(() => {
@@ -255,4 +363,63 @@ onBeforeUnmount(() => {
 .nodrag {
     -webkit-app-region: no-drag;
 }
+
+.titlebar-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin-left: auto;
+
+    button {
+        -webkit-app-region: no-drag;
+        display: inline-block;
+        position: relative;
+        width: 45px;
+        height: 45px;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+        color: currentColor;
+        background-color: transparent;
+        line-height: 100%;
+        outline: none;
+
+        svg {
+            fill: currentColor;
+        }
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+            color: currentColor;
+        }
+
+        &.close:hover {
+            background-color: #e81123;
+            color: #fff;
+        }
+    }
+}
+
+.v-app-bar-nav-icon {
+    border-radius: 0;
+}
+.v-app-bar-nav-icon:hover,
+.v-app-bar-nav-icon:focus,
+.v-app-bar-nav-icon:active {
+    border-radius: 0;
+}
+
+.v-btn {
+    border-radius: 0;
+}
+.v-btn:hover,
+.v-btn:focus,
+.v-btn:active {
+    border-radius: 0;
+}
+
 </style>

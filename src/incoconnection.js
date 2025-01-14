@@ -1,6 +1,6 @@
 import dummyData from './dummy_data.json';
 
-let NOHARDWARE = false;
+let NOHARDWARE = true;
 
 let session = null;
 
@@ -100,6 +100,19 @@ export async function incousedmem() {
         return Math.floor(Math.random() * 128);
     }
 
+    return session.getVariable("Target.Memory.Pools.Heap.FreeSize").then((freeSize) => {
+        return session.getVariable("Target.Memory.Pools.Heap.Size").then((size) => {
+            return (size.value.value - freeSize.value.value) / 1000;
+        });
+    });
+}
+
+export async function incoallocatedmem() {
+    if (NOHARDWARE) {
+        return Math.floor(Math.random() * 10);
+    }
+
+    // ToDo das echte hin schrieben
     return session.getVariable("Target.Memory.Pools.Heap.FreeSize").then((freeSize) => {
         return session.getVariable("Target.Memory.Pools.Heap.Size").then((size) => {
             return (size.value.value - freeSize.value.value) / 1000;
