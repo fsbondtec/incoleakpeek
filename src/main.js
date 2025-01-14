@@ -12,8 +12,8 @@ let mainWindow;
 const createWindow = () => {
     // Create the browser window.
     mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600,
+        width: 1024,
+        height: 720,
         frame: false, // Standard-Titelleiste entfernen
         webPreferences: {
             preload: path.join(__dirname, "preload.js"),
@@ -31,7 +31,6 @@ const createWindow = () => {
             ),
         );
     }
-
     // Open the DevTools.
     mainWindow.webContents.openDevTools();
 };
@@ -70,3 +69,10 @@ ipcMain.on("maximize-window", () => {
     }
 });
 ipcMain.on("close-window", () => mainWindow.close());
+
+// ipcMain.handle('show-save-dialog', async (event) => {
+//     const result = await dialog.showSaveDialog({
+//       // optional settings
+//     });
+//     return result;
+//   });
