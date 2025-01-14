@@ -1,5 +1,6 @@
 <template>
     <v-app>
+        <!-- Custom Titlebar -->
         <v-app-bar density="compact" class="drag">
             <v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer" class="nodrag"></v-app-bar-nav-icon>
             <v-container class="d-flex justify-center">
@@ -66,6 +67,7 @@
             <v-list height="100%">
                 <v-list-item prepend-icon="mdi-content-save" title="Save File" @click="saveFile"></v-list-item>
                 <v-list-item prepend-icon="mdi-folder-open" title="Load File" @click="loadFile"></v-list-item>
+                <v-list-item prepend-icon="mdi-information" title="About" @click="showAboutDialog"></v-list-item>
                 <v-list-item prepend-icon="mdi-exit-run" title="Exit" @click="closeWindow"></v-list-item>
                 <v-divider></v-divider>
                 <v-list-item>
@@ -85,6 +87,22 @@
             ></v-data-table-virtual>
             <v-chart class="memoryChart" :option="chartOptions" style="height: 30%;" autoresize />
         </v-main>
+
+        <!-- About Dialog -->
+        <v-dialog v-model="aboutDialog" max-width="500px">
+            <v-card>
+                <v-card-title class="headline">About IncoLeakPeek</v-card-title>
+                <v-card-text>
+                    <p>IncoLeakPeek is a memory usage monitoring tool.</p>
+                    <p>Version: 1.0.0</p>
+                    <p>Developed by: Your Name</p>
+                </v-card-text>
+                <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn color="primary" text @click="aboutDialog = false">Close</v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
     </v-app>
 </template>
 
@@ -104,6 +122,8 @@ use([TooltipComponent, GridComponent, LineChart, CanvasRenderer])
 let intervalId = null;
 
 const drawer = ref(false);
+
+const aboutDialog = ref(false);
 
 const totalmem = ref(1);
 const membegin = ref({});
@@ -303,6 +323,10 @@ function loadFile() {
             console.log("User canceled the open dialog.");
         }
     });
+}
+
+function showAboutDialog() {
+    aboutDialog.value = true;
 }
 
 function toggleDarkMode() {
