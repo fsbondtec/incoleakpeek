@@ -71,7 +71,8 @@ module.exports = {
                     owner: 'fsbondtec',
                     name: 'incoleakpeek'
                 },
-                prerelease: true
+                prerelease: true,
+                draft: true,
             }
         }
     ],
