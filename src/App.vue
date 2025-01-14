@@ -83,13 +83,7 @@
                 height="calc(70vh - 48px)"
                 fixed-header
             ></v-data-table-virtual>
-            <apexchart
-                ref="memoryChart"
-                type="line"
-                height="30%"
-                :options="chartOptions"
-                :series="series"
-            ></apexchart>
+            <v-chart class="memoryChart" :option="chartOptions" style="height: 30%;" autoresize />
         </v-main>
     </v-app>
 </template>
@@ -98,8 +92,14 @@
 import { ref, onMounted, onBeforeUnmount, watch, useTemplateRef } from "vue";
 import { useTheme } from "vuetify";
 import "@mdi/font/css/materialdesignicons.css";
-import { incoconnect, incodisconnect, incoclassmemusage, incousedmem, incototalmem } from "./incoconnection.js";
-import { updateChartThemeMode } from "./apexcharts_patch.js";
+import { incoconnect, incodisconnect, incoclassmemusage, incousedmem, incototalmem, incoallocatedmem } from "./incoconnection.js";
+
+import { use } from 'echarts/core'
+import { LineChart } from 'echarts/charts'
+import { TooltipComponent, GridComponent } from 'echarts/components'
+import { CanvasRenderer } from 'echarts/renderers'
+import VChart, { THEME_KEY } from 'vue-echarts';
+use([TooltipComponent, GridComponent, LineChart, CanvasRenderer])
 
 let intervalId = null;
 
@@ -109,11 +109,11 @@ const totalmem = ref(1);
 const membegin = ref({});
 
 const theme = useTheme();
-watch(() => theme.global.current.value.dark,
-    (newVal) => {
-        chartOptions.value = updateChartThemeMode(chartOptions.value, newVal);
-    }
-);
+// watch(() => theme.global.current.value.dark,
+//     (newVal) => {
+//         chartOptions.value = updateChartThemeMode(chartOptions.value, newVal);
+//     }
+// );
 
 const search = ref("");
 
@@ -136,23 +136,67 @@ const series = ref([
 ]);
 
 const chartOptions = ref({
-    chart: {
-        type: "line",
-        toolbar: {
-            show: false,
+    color: ['#4dc3ff', '#ff614d'],
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'line',
+            label: {
+                backgroundColor: '#6a7985'
+            }
+        }
+    },
+    grid: {
+        left: '1%',
+        right: '1%',
+        bottom: '1%',
+        containLabel: true
+    },
+    xAxis: [
+        {
+            type: 'category',
+            boundaryGap: false,
+            splitNumber: 10,
+            data: [],
+        }
+    ],
+    yAxis: [
+        {
+            type: 'value',
+            splitNumber: 4,
+        }
+    ],
+    series: [
+        {
+            name: 'UsedMemory',
+            type: 'line',
+            stack: 'Total',
+            smooth: true,
+            lineStyle: {
+                width: 0
+            },
+            showSymbol: false,
+            areaStyle: {
+                opacity: 0.8,
+            },
+            data: []
         },
-    },
-    xaxis: {
-        tickAmount: 10, // Only first and last ticks
-    },
-    yaxis: {
-        type: 'numeric',
-        min: 0,
-        max: totalmem.value,
-        tickAmount: 8,
-    }
+        {
+            name: 'AllocatedMemory',
+            type: 'line',
+            stack: 'Total',
+            smooth: true,
+            lineStyle: {
+                width: 0
+            },
+            showSymbol: false,
+            areaStyle: {
+                opacity: 0.8,
+            },
+            data: []
+        },
+    ]
 });
-const memChart = useTemplateRef("memoryChart");
 
 const selectInterval = ref(10000);
 const options = ref([
@@ -178,8 +222,8 @@ function toggleRecord() {
         console.log("Recording started");
         series.value[0].data = [];
         items.value = [];
-        chartOptions.value.yaxis.max = totalmem.value;
-        memChart.value.refresh()
+        chartOptions.value.yAxis[0].max = totalmem.value;
+        chartOptions.value.yAxis[0].interval = totalmem.value / 4;
     } else {
         console.log("Recording stopped");
     }
@@ -192,7 +236,11 @@ const updateMemoryUsage = () => {
 
     incousedmem().then((usedmem) => {
         const currentTime = new Date().toLocaleTimeString('en-US', { hour12: false });
-        series.value[0].data.push({ x: currentTime, y: usedmem });
+        incoallocatedmem().then((allocatedmem) => {
+            chartOptions.value.xAxis[0].data.push(currentTime);
+            chartOptions.value.series[0].data.push(usedmem);
+            chartOptions.value.series[1].data.push(allocatedmem);
+        });
     });
 
     incoclassmemusage().then((incoClasses) => {
@@ -256,7 +304,6 @@ function loadFile() {
             membegin.value = data.membegin;
             series.value = data.series;
             items.value = data.items;
-            memChart.value.refresh()
         } else {
             console.log("User canceled the open dialog.");
         }

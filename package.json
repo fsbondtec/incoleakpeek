@@ -29,15 +29,15 @@
     },
     "keywords": [],
     "author": {
-        "name": "Matthias Stephan",
-        "email": "matthias.stephan@fsbondtec.at"
+        "name": "F&S Bondtec Semiconductor GmbH",
+        "email": "info@fsbondtec.at"
     },
     "license": "MIT",
     "dependencies": {
         "@mdi/font": "^7.4.47",
-        "apexcharts": "^4.3.0",
+        "echarts": "^5.6.0",
         "electron-squirrel-startup": "^1.0.1",
         "vue": "^3.5.13",
-        "vue3-apexcharts": "^1.8.0"
+        "vue-echarts": "^7.0.3"
     }
 }

@@ -106,3 +106,16 @@ export async function incousedmem() {
         });
     });
 }
+
+export async function incoallocatedmem() {
+    if (NOHARDWARE) {
+        return Math.floor(Math.random() * 10);
+    }
+
+    // ToDo das echte hin schrieben
+    return session.getVariable("Target.Memory.Pools.Heap.FreeSize").then((freeSize) => {
+        return session.getVariable("Target.Memory.Pools.Heap.Size").then((size) => {
+            return (size.value.value - freeSize.value.value) / 1000;
+        });
+    });
+}
