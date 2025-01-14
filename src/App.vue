@@ -1,9 +1,7 @@
 <template>
     <v-app>
-        <!-- Custom Titlebar (hat eine hoehe von 48px) -->
         <v-app-bar density="compact" class="drag">
             <v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer" class="nodrag"></v-app-bar-nav-icon>
-            <v-spacer></v-spacer>
             <v-container class="d-flex justify-center">
                 <v-row align="center">
                     <v-col cols="2">
@@ -26,6 +24,7 @@
                             class="nodrag"
                         ></v-text-field>
                     </v-col>
+                    <v-col cols="1"></v-col>
                     <v-spacer></v-spacer>
                     <v-col cols="2">
                         <v-select
@@ -40,20 +39,17 @@
                     </v-col>
                 </v-row>
             </v-container>
-            
             <div class="titlebar-buttons">
                 <button aria-label="minimize" title="Minimize" tabindex="-1" @click="minimizeWindow">
                     <svg aria-hidden="true" version="1.1" width="10" height="10">
                         <path d="M 0,5 10,5 10,6 0,6 Z"></path>
                     </svg>
                 </button>
-
                 <button aria-label="maximize" title="Maximize" tabindex="-1" @click="maximizeWindow">
                     <svg aria-hidden="true" version="1.1" width="10" height="10">
                         <path d="M 0,0 0,10 10,10 10,0 Z M 1,1 9,1 9,9 1,9 Z"></path>
                     </svg>
                 </button>
-
                 <button aria-label="close" title="Close" tabindex="-1" class="close" @click="closeWindow">
                     <svg aria-hidden="true" version="1.1" width="10" height="10">
                         <path d="M 0,0 0,0.7 4.3,5 0,9.3 0,10 0.7,10 5,5.7 9.3,10 10,10 10,9.3 5.7,5 10,0.7 10,0 9.3,0 5,4.3 0.7,0 Z"></path>
@@ -99,15 +95,13 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount, watch } from "vue";
+import { ref, onMounted, onBeforeUnmount, watch, useTemplateRef } from "vue";
 import { useTheme } from "vuetify";
 import "@mdi/font/css/materialdesignicons.css";
-
 import { incoconnect, incodisconnect, incoclassmemusage, incousedmem, incototalmem } from "./incoconnection.js";
 import { updateChartThemeMode } from "./apexcharts_patch.js";
 
 let intervalId = null;
-let intervalCounter = 0;
 
 const drawer = ref(false);
 
@@ -149,45 +143,16 @@ const chartOptions = ref({
         },
     },
     xaxis: {
-        type: 'numeric',
-        range: 60000, // 60 seconds
-        tickAmount: 1, // Only first and last ticks
-        labels: {
-            formatter: function (val, timestamp) {
-                var ret = Math.round((new Date().getTime() - timestamp) / 1000);
-                if (ret === 0) {
-                    return "0";
-                }
-                else if (ret === 60) {
-                    return `${ret}s`;
-                }
-                else {
-                    return "";
-                }
-            },
-        },
+        tickAmount: 10, // Only first and last ticks
     },
     yaxis: {
         type: 'numeric',
-        opposite: true,
         min: 0,
-        max: totalmem,
-        tickAmount: 10,
-        labels: {
-            formatter: function (val, index) {
-                if (val === 0) {
-                    return "0";
-                }
-                else if(val === totalmem.value) {
-                    return `${val}kB`;
-                }
-                else {
-                    return "";
-                }
-            },
-        },
-    },
+        max: totalmem.value,
+        tickAmount: 8,
+    }
 });
+const memChart = useTemplateRef("memoryChart");
 
 const selectInterval = ref(10000);
 const options = ref([
@@ -213,6 +178,8 @@ function toggleRecord() {
         console.log("Recording started");
         series.value[0].data = [];
         items.value = [];
+        chartOptions.value.yaxis.max = totalmem.value;
+        memChart.value.refresh()
     } else {
         console.log("Recording stopped");
     }
@@ -224,7 +191,7 @@ const updateMemoryUsage = () => {
     }
 
     incousedmem().then((usedmem) => {
-        const currentTime = new Date().getTime();
+        const currentTime = new Date().toLocaleTimeString('en-US', { hour12: false });
         series.value[0].data.push({ x: currentTime, y: usedmem });
     });
 
@@ -255,21 +222,45 @@ const updateMemoryUsage = () => {
     });
 };
 
-function saveFile() {
-    // try {
-    //     const result = await ipcRenderer.invoke('show-save-dialog');
-    //     if (!result.canceled) {
-    //         const filePath = result.filePath;
-    //         console.log('File will be saved to: ' + filePath);
-    //         // Add your file saving logic here
-    //     }
-    // } catch (error) {
-    //     console.error('Error opening save dialog: ', error);
-    // }
+async function saveFile() {
+    const result = await window.electron.showSaveDialog({
+        title: "Save a file",
+        filters: [{ name: "Inco Leak Peak Files", extensions: ["ilp"] }],
+    });
+
+    if (!result.canceled) {
+        console.log("Selected path:", result.filePath);
+        const saveFileData = {
+            totalmem: totalmem.value,
+            membegin: membegin.value,
+            series: series.value,
+            items: items.value,
+        };
+        const jsonData = JSON.stringify(saveFileData);
+        await window.electron.writeFile(result.filePath, jsonData);
+    } else {
+        console.log("User canceled the save dialog.");
+    }
 }
 
 function loadFile() {
-    console.log("loadFile");
+    window.electron.showOpenDialog({
+        title: "Open a file",
+        filters: [{ name: "Inco Leak Peak Files", extensions: ["ilp"] }],
+    }).then(async (result) => {
+        if (!result.canceled) {
+            console.log("Selected path:", result.filePaths[0]);
+            const jsonData = await window.electron.readFile(result.filePaths[0]);
+            const data = JSON.parse(jsonData.data);
+            totalmem.value = data.totalmem;
+            membegin.value = data.membegin;
+            series.value = data.series;
+            items.value = data.items;
+            memChart.value.refresh()
+        } else {
+            console.log("User canceled the open dialog.");
+        }
+    });
 }
 
 function toggleDarkMode() {
