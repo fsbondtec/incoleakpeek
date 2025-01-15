@@ -84,7 +84,11 @@
                 :search="search"
                 height="calc(70vh - 48px)"
                 fixed-header
-            ></v-data-table-virtual>
+            >
+            <template v-slot:item.memory="{ item }">
+                {{ formatBytes(item.memory) }}
+            </template>
+            </v-data-table-virtual>
             <v-chart class="memoryChart" :option="chartOptions" style="height: 30%;" autoresize />
         </v-main>
 
@@ -145,12 +149,11 @@ const darkMode = ref(true);
 
 const headers = ref([
     { title: "Class Name", key: "name" },
-    { title: "RAM (Byte)", key: "memory" },
+    { title: "RAM", key: "memory" },
     { title: "start count", key: "startcount" },
     { title: "count", key: "actcount" },
     { title: "count Δ", key: "countdelta" },
     { title: "max count", key: "maxcount" },
-    
 ]);
 
 const items = ref([]);
@@ -164,6 +167,13 @@ const chartOptions = ref({
             label: {
                 backgroundColor: '#6a7985'
             }
+        },
+        formatter: function (params) {
+            let result = params[0].name + '<br/>';
+            params.forEach(item => {
+                result += item.marker + item.seriesName + ': ' + formatBytes(item.value) + '<br/>';
+            });
+            return result;
         }
     },
     grid: {
@@ -185,7 +195,9 @@ const chartOptions = ref({
             type: 'value',
             splitNumber: 4,
             axisLabel: {
-                formatter: '{value} B'
+                formatter: function (value) {
+                    return formatBytes(value);
+                }
             }
         }
     ],
@@ -344,6 +356,14 @@ function maximizeWindow() {
 
 function closeWindow() {
     if (window.electron) window.electron.closeWindow();
+}
+
+function formatBytes(bytes) {
+    if (bytes === 0) return '0 B';
+    const k = 1000;
+    const sizes = ['B', 'KB', 'MB', 'GB', 'TB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
 }
 
 onMounted(() => {

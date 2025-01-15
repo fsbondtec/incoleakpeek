@@ -116,15 +116,3 @@ export async function incototalmem() {
         return size.value.value;
     });
 }
-
-export async function incousedmem() {
-    if (NOHARDWARE) {
-        return Math.floor(Math.random() * 128);
-    }
-
-    return session.getVariable("Target.Memory.Pools.Heap.FreeSize").then((freeSize) => {
-        return session.getVariable("Target.Memory.Pools.Heap.Size").then((size) => {
-            return (size.value.value - freeSize.value.value) / 1000;
-        });
-    });
-}
