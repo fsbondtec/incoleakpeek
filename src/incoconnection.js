@@ -1,6 +1,6 @@
 import dummyData from './dummy_data.json';
 
-let NOHARDWARE = false;
+let NOHARDWARE = true;
 
 let session = null;
 

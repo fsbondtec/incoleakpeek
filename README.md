@@ -20,9 +20,31 @@ This project was created during an internal hackathon at [F&S BONDTEC Semiconduc
 
 ## Usage
 
-IncoLeakPeek provides a user-friendly interface to detect memory leaks. Here are some key features:
+IncoLeakPeek provides a user-friendly interface to detect memory leaks.
 
-> TODO
+![Usage](doc/assets/usage.gif)
+
+### Key Features
+
+- **Start/Stop Session**: Easily start and stop leak detection sessions.
+
+  ![StartStop](doc/assets/startstop.png)
+
+- **Search**: Quickly search through the memory usage data.
+
+  ![Search](doc/assets/search.png)
+
+- **Interval Selection**: Choose the interval for memory usage updates.
+
+  ![Interval](doc/assets/interval.png)
+
+- **Memory Usage Table**: View detailed memory usage information for each class.
+
+  ![Table](doc/assets/table.png)
+
+- **Memory Usage Chart**: Visualize memory usage over time.
+
+  ![Chart](doc/assets/chart.png)
 
 ## Compilation from sources
 
