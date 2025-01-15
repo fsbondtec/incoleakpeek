@@ -1629,6 +1629,14 @@
 │  ├─ url: http://deadhorse.me
 │  ├─ path: C:\git\incoleakpeek\node_modules\humanize-ms
 │  └─ licenseFile: C:\git\incoleakpeek\node_modules\humanize-ms\LICENSE
+├─ humanize-plus@1.8.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/HubSpot/humanize
+│  ├─ publisher: HubSpotDev
+│  ├─ email: devteam@hubspot.com
+│  ├─ url: dev.hubspot.com
+│  ├─ path: C:\git\incoleakpeek\node_modules\humanize-plus
+│  └─ licenseFile: C:\git\incoleakpeek\node_modules\humanize-plus\LICENSE
 ├─ iconv-lite@0.4.24
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/ashtuchkin/iconv-lite

@@ -86,7 +86,7 @@
                 fixed-header
             >
             <template v-slot:item.memory="{ item }">
-                {{ formatBytes(item.memory) }}
+                {{ Humanize.fileSize(item.memory) }}
             </template>
             </v-data-table-virtual>
             <v-chart class="memoryChart" :option="chartOptions" style="height: 30%;" autoresize />
@@ -111,6 +111,7 @@
                         <li><a href="https://github.com/Templarian/MaterialDesign-Webfont/blob/master/LICENSE" target="_blank">@mdi/font</a>: Licensed under the MIT License</li>
                         <li><a href="https://github.com/apache/echarts/blob/master/LICENSE" target="_blank">echarts</a>: Licensed under the Apache License 2.0</li>
                         <li><a href="https://github.com/ecomfe/vue-echarts/blob/main/LICENSE" target="_blank">vue-echarts</a>: Licensed under the MIT License</li>
+                        <li><a href="https://github.com/HubSpot/humanize/blob/master/LICENSE" target="_blank">humanize-plus</a>: Licensed under the MIT License</li>
                     </ul>
                 </v-card-text>
                 <v-card-actions>
@@ -134,6 +135,8 @@ import { TooltipComponent, GridComponent } from 'echarts/components'
 import { CanvasRenderer } from 'echarts/renderers'
 import VChart from 'vue-echarts';
 use([TooltipComponent, GridComponent, LineChart, CanvasRenderer])
+
+import Humanize from 'humanize-plus';
 
 let intervalId = null;
 
@@ -171,7 +174,7 @@ const chartOptions = ref({
         formatter: function (params) {
             let result = params[0].name + '<br/>';
             params.forEach(item => {
-                result += item.marker + item.seriesName + ': ' + formatBytes(item.value) + '<br/>';
+                result += item.marker + item.seriesName + ': ' + Humanize.fileSize(item.value) + '<br/>';
             });
             return result;
         }
@@ -196,7 +199,7 @@ const chartOptions = ref({
             splitNumber: 4,
             axisLabel: {
                 formatter: function (value) {
-                    return formatBytes(value);
+                    return Humanize.fileSize(value);
                 }
             }
         }
@@ -356,14 +359,6 @@ function maximizeWindow() {
 
 function closeWindow() {
     if (window.electron) window.electron.closeWindow();
-}
-
-function formatBytes(bytes) {
-    if (bytes === 0) return '0 B';
-    const k = 1000;
-    const sizes = ['B', 'KB', 'MB', 'GB', 'TB'];
-    const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
 }
 
 onMounted(() => {
