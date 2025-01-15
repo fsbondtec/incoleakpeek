@@ -56,3 +56,15 @@ This project is licensed under the MIT License. See the [LICENSE](https://github
 
 This project uses `incov.browser.min.js` from Indel AG. The usage of this library is subject to Indel AG's licensing terms. For more information, please refer to Indel AG's official documentation and licensing agreements.
 
+Additionally, this project uses Electron and Node.js, which are licensed under the MIT License. For more information, please refer to their respective [Electron License](https://github.com/electron/electron/blob/main/LICENSE) and [Node.js License](https://github.com/nodejs/node/blob/main/LICENSE).
+
+Other third-party libraries used in this project include:
+
+- **Vue.js**: A progressive JavaScript framework. Licensed under the [MIT License](https://github.com/vuejs/vue/blob/main/LICENSE).
+- **Vuetify**: A Material Design component framework for Vue.js. Licensed under the [MIT License](https://github.com/vuetifyjs/vuetify/blob/master/LICENSE).
+- **@mdi/font**: Material Design Icons. Licensed under the [MIT License](https://github.com/Templarian/MaterialDesign-Webfont/blob/master/LICENSE).
+- **echarts**: A powerful, interactive charting and visualization library. Licensed under the [Apache License 2.0](https://github.com/apache/echarts/blob/master/LICENSE).
+- **vue-echarts**: ECharts component for Vue.js. Licensed under the [MIT License](https://github.com/ecomfe/vue-echarts/blob/main/LICENSE).
+
+Please refer to the respective licenses for more information.
+

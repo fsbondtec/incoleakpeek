@@ -93,9 +93,21 @@
             <v-card>
                 <v-card-title class="headline">About IncoLeakPeek</v-card-title>
                 <v-card-text>
-                    <p>IncoLeakPeek is a memory usage monitoring tool.</p>
-                    <p>Version: 1.0.0</p>
-                    <p>Developed by: Your Name</p>
+                    <p><strong>IncoLeakPeek</strong> is a memory usage monitoring tool.</p>
+                    <p><strong>Version:</strong> 1.0.0</p>
+                    <p><strong>Developed by:</strong> <a href="https://www.fsbondtec.at/" target="_blank">F&S BONDTEC Semiconductor GmbH</a></p>
+                    <p><strong>License:</strong> This project is licensed under the MIT License.</p>
+                    <p><strong>Third-Party Licenses:</strong></p>
+                    <ul>
+                        <li><a href="https://www.indel.ch/" target="_blank">incov.browser.min.js</a>: Subject to Indel AG's licensing terms</li>
+                        <li><a href="https://github.com/electron/electron/blob/main/LICENSE" target="_blank">Electron</a>: Licensed under the MIT License</li>
+                        <li><a href="https://github.com/nodejs/node/blob/main/LICENSE" target="_blank">Node.js</a>: Licensed under the MIT License</li>
+                        <li><a href="https://github.com/vuejs/vue/blob/main/LICENSE" target="_blank">Vue.js</a>: Licensed under the MIT License</li>
+                        <li><a href="https://github.com/vuetifyjs/vuetify/blob/master/LICENSE" target="_blank">Vuetify</a>: Licensed under the MIT License</li>
+                        <li><a href="https://github.com/Templarian/MaterialDesign-Webfont/blob/master/LICENSE" target="_blank">@mdi/font</a>: Licensed under the MIT License</li>
+                        <li><a href="https://github.com/apache/echarts/blob/master/LICENSE" target="_blank">echarts</a>: Licensed under the Apache License 2.0</li>
+                        <li><a href="https://github.com/ecomfe/vue-echarts/blob/main/LICENSE" target="_blank">vue-echarts</a>: Licensed under the MIT License</li>
+                    </ul>
                 </v-card-text>
                 <v-card-actions>
                     <v-spacer></v-spacer>
@@ -444,6 +456,19 @@ onBeforeUnmount(() => {
 .v-btn:focus,
 .v-btn:active {
     border-radius: 0;
+}
+
+.v-card-text p {
+    margin: 0 0 10px;
+}
+
+.v-card-text ul {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.v-card-text ul li {
+    margin-bottom: 5px;
 }
 
 </style>
