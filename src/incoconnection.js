@@ -1,6 +1,6 @@
 import dummyData from './dummy_data.json';
 
-let NOHARDWARE = false;
+let NOHARDWARE = true;
 
 let session = null;
 
@@ -51,7 +51,7 @@ export async function incoclassmemusage() {
             ret.classes[key].count += Math.floor(Math.random() * 10);
         }
         ret.alloc += Math.floor(Math.random() * 1000000);
-        ret.used += Math.floor(Math.random() * 100000);
+        ret.used += Math.floor(Math.random() * 500000);
         return ret;
     }
 

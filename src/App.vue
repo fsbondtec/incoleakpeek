@@ -193,28 +193,23 @@ const chartOptions = ref({
         {
             name: 'UsedMemory',
             type: 'line',
-            stack: 'Total',
             smooth: true,
             lineStyle: {
-                width: 0
+                width: 3
             },
             showSymbol: false,
-            areaStyle: {
-                opacity: 0.8,
-            },
             data: []
         },
         {
             name: 'AllocatedMemory',
             type: 'line',
-            stack: 'Total',
             smooth: true,
             lineStyle: {
                 width: 0
             },
             showSymbol: false,
             areaStyle: {
-                opacity: 0.8,
+                opacity: 0.6,
             },
             data: []
         },
@@ -278,7 +273,7 @@ const updateMemoryUsage = () => {
             }
             chartOptions.value.xAxis[0].data.push(currentTime);
             chartOptions.value.series[0].data.push(incoClasses.used);
-            chartOptions.value.series[1].data.push(incoClasses.alloc - incoClasses.used);
+            chartOptions.value.series[1].data.push(incoClasses.alloc);
         } else {
             console.error("Invalid data received from getClassMemUseage");
         }
