@@ -1,740 +1,2970 @@
 {
-    "CCachedFrame": 0,
-    "CHttpConnectInfoResource": 0,
-    "CHttpLeafResource": 0,
-    "CHttpResource": 0,
-    "CINCOItemConfig": 0,
-    "CINCOLoggers": 1,
-    "CINCOVParseAuthServer": 0,
-    "CINCOVParseOperation": 0,
-    "CINCOVParseProcedure": 0,
-    "CINCOVParseSession": 0,
-    "CINCOVThread": 0,
-    "CINCOdatetimeConfig": 2,
-    "CINOSCalibs": 1,
-    "CINOSDataChannelPacketInformationPdp": 0,
-    "CINOSDataChannelPacketInformationSio": 0,
-    "CINOSHooks": 0,
-    "CINOSMappings": 1,
-    "CINOSMcLuaMutexSWaitingTask": 0,
-    "CINOSMcLuaWeakPtrT": 127,
-    "CINOSMcNvRamGrp": 8,
-    "CINOSMcVal": 0,
-    "CINOSStreams": 1,
-    "CINOSTaskExMsgTrigger": 0,
-    "CINOSUBoot": 0,
-    "SConnectionInfo": 0,
-    "SDT2Record": 78,
-    "SINOSMcMessageJson": 0,
-    "SINOSglobalstring": 822,
-    "STLSKey": 1,
-    "STLSKeyData": 3,
-    "CBinNode": 36548,
-    "CDbgDataReader": 0,
-    "CHttpCallProcResource": 0,
-    "CHttpIncoResource": 0,
-    "CINCOObjectConfig": 7360,
-    "CINCOProcedureConfig": 1361,
-    "CINCOVariableConfig": 0,
-    "CINCObitConfig": 5076,
-    "CINCOstringConfig": 6617,
-    "CINOSBalancedBinaryTree": 7442,
-    "CINOSChannelHook": 0,
-    "CINOSDataAttribute": 0,
-    "CINOSDataAttributeStr": 23,
-    "CINOSDataChannelPacketInformationUdp": 0,
-    "CINOSDataChannelPropertiesPdp": 0,
-    "CINOSDataChannelPropertiesUdp": 4,
-    "CINOSDoubleLinkedList": 15,
-    "CINOSException": 0,
-    "CINOSExceptionCleanup": 0,
-    "CINOSHook": 0,
-    "CINOSMatrix": 0,
-    "CINOSMcLuaWaitingCommand": 0,
-    "CINOSMcNvRamVal": 0,
-    "CINOSMcScriptCmdIncompleteDesc": 0,
-    "CINOSMcScriptCmdPndDesc": 0,
-    "CINOSMcValves": 0,
-    "CINOSMovePathPart": 0,
-    "CINOSSafeConfig": 0,
-    "CINOSSafeConfigUidMapping": 0,
-    "CINOSService": 0,
-    "CINOSShapePart": 0,
-    "CINOSString": 0,
-    "CINOSStringData": 0,
-    "CINOSSyncNode": 0,
-    "CINOSTaskExMsgNode": 0,
-    "CINOSxmsHandlerBase": 0,
-    "CListNode": 175,
-    "ConstRampSeg": 0,
-    "DVTLoggerStreamConnectionHandler": 1,
-    "OperatorNew": 16237,
-    "SChannelFdItem": 1,
-    "SDataString": 0,
-    "SGININCOFrameMas": 0,
-    "SGININCOFrameSla": 0,
-    "SHandShakeParamTce": 0,
-    "SINOSBaseAxisHook": 0,
-    "SINOSBusInfoHook": 0,
-    "SINOSControlErrorHook": 0,
-    "SINOSLuaBreakpointInstance": 0,
-    "SINOSMcMessageConnection": 1,
-    "SINOSMcTargetCommIoctlSubscription": 1,
-    "SINOSMcTargetImageTransferJob": 0,
-    "SINOSMcTargetMessageRouterTransaction": 0,
-    "SINOSMemMapHook": 0,
-    "SINOSSetWord": 0,
-    "SINOSSystemCheck": 0,
-    "SINOSTargetHook": 0,
-    "TINOSMcValT": 0,
-    "CGINLinkDiagnosisCounter": 22,
-    "CINCODataAttributeNbr": 0,
-    "CINCODataAttributeStr": 0,
-    "CINCODataItem": 0,
-    "CINCODataObject": 0,
-    "CINCODataObjectInfo": 0,
-    "CINCODataPropertyNbr": 0,
-    "CINCODataPropertyStr": 0,
-    "CINCODeadTimeMs": 5,
-    "CINCODelayToHalt": 5,
-    "CINCOEvtLoggerGet": 3,
-    "CINCOGINModuleInfo": 2,
-    "CINCOHwDeviceInfo": 34,
-    "CINCOIPuint8": 1,
-    "CINCOItem": 0,
-    "CINCOLogBufferOverlay": 0,
-    "CINCOMcLuaPendingCalls": 0,
-    "CINCOObject": 5117,
-    "CINCOProcessImageBit": 183,
-    "CINCOProcessImageBitFilter": 98,
-    "CINCOProcessImageBitInverted": 179,
-    "CINCOProcessImageDac": 17,
-    "CINCOProcessImageDac_int32": 3,
-    "CINCOProcessImageDac_real64": 0,
-    "CINCOProcessImageDac_uint32": 14,
-    "CINCOProcessImagePos": 8,
-    "CINCOSystemMicroToDurationSec": 1,
-    "CINCOTstPosition": 90,
-    "CINCOTstValue": 0,
-    "CINCOVariable": 0,
-    "CINCOactSEx": 0,
-    "CINCOaxslifetime": 0,
-    "CINCOaxspos": 4,
-    "CINCObit": 4469,
-    "CINCObool": 77,
-    "CINCOcmdJ": 5,
-    "CINCOcmdJs": 16,
-    "CINCOcmdaxspos": 4,
-    "CINCOctrcycletime": 0,
-    "CINCOdatetime": 2,
-    "CINCOdouble": 1726,
-    "CINCOentity": 2,
-    "CINCOentries": 1,
-    "CINCOerror": 5,
-    "CINCOfixed32": 0,
-    "CINCOfixed64": 0,
-    "CINCOflag": 0,
-    "CINCOfloat": 26,
-    "CINCOint16": 5,
-    "CINCOint32": 124,
-    "CINCOint32combo": 5,
-    "CINCOint8": 0,
-    "CINCOintConfig": 10640,
-    "CINCOldcflt": 0,
-    "CINCOldcval": 0,
-    "CINCOnvint32": 8,
-    "CINCOnvlstring": 0,
-    "CINCOnvreal64": 83,
-    "CINCOnvstring": 16,
-    "CINCOnvstringCombo": 0,
-    "CINCOnvuint32": 26,
-    "CINCOnvuint32combo": 48,
-    "CINCOparam_string": 378,
-    "CINCOparam_stringCombo": 0,
-    "CINCOpidDelayToHalt": 0,
-    "CINCOresval": 24,
-    "CINCOstring": 5963,
-    "CINCOstringCombo": 0,
-    "CINCOstringConfigCombo": 0,
-    "CINCOstringConstPtr": 0,
-    "CINCOtcmdJ": 0,
-    "CINCOtcmdJs": 0,
-    "CINCOticks": 16,
-    "CINCOticksUnsigned": 30,
-    "CINCOticks_to_ms": 0,
-    "CINCOticks_to_percent": 0,
-    "CINCOticks_to_sec": 0,
-    "CINCOtriggertasklogger": 0,
-    "CINCOuint16": 832,
-    "CINCOuint16combo": 6,
-    "CINCOuint32": 8173,
-    "CINCOuint32Overrun": 2,
-    "CINCOuint32be": 707,
-    "CINCOuint32combo": 613,
-    "CINCOuint8": 190,
-    "CINCOuint8combo": 13,
-    "CINOSAssertException": 0,
-    "CINOSBinaryWriter": 0,
-    "CINOSBusLocalModuleInfo": 1,
-    "CINOSDataAttributeNbr": 0,
-    "CINOSDataChannel": 4,
-    "CINOSDataChannelDataPacketDynamic": 0,
-    "CINOSDataChannelPropertiesSio": 0,
-    "CINOSDataItem": 0,
-    "CINOSDataProperty": 0,
-    "CINOSDataStreamItem": 0,
-    "CINOSIncoString": 0,
-    "CINOSMcModuleWaitObj": 0,
-    "CINOSMcTargetStateTransitionSequence": 0,
-    "CINOSRampJobPart": 3,
-    "CINOSSafetyConfigBin": 0,
-    "CINOSShapePartAbs": 0,
-    "CINOSShapePartInc": 0,
-    "CINOSxmsHandler": 3,
-    "CMcResult": 1,
-    "CTFTIELuint8": 0,
-    "SCorr": 0,
-    "SGINDprRequest": 0,
-    "SGINModuleCOPMasterTableEntry": 0,
-    "SINOSHwInterfaceFrameHnd": 0,
-    "SINOSMcMessageListener": 2,
-    "SINOSMcTargetCommSubscription": 4,
-    "SINOSPolygonInter": 0,
-    "SINOSSpeedPoint": 0,
-    "SLPoint": 0,
-    "TINOSFilterT": 0,
-    "TINOSMcNvRamValT": 0,
-    "CINCOActPosition": 5,
-    "CINCOActValue": 0,
-    "CINCOBusModuleErrorCounter": 1,
-    "CINCOCOPdpr_uint16": 36,
-    "CINCOCOPdpr_uint32": 66,
-    "CINCOCOPport16": 65,
-    "CINCOCOPport16combo": 4,
-    "CINCOCOPram_int16": 0,
-    "CINCOCOPram_int32": 0,
-    "CINCOCOPram_int8": 0,
-    "CINCOCOPram_uint16": 0,
-    "CINCOCOPram_uint16combo": 0,
-    "CINCOCOPram_uint32": 0,
-    "CINCOCOPram_uint32combo": 0,
-    "CINCOCOPram_uint8": 0,
-    "CINCOCOPram_uint8combo": 0,
-    "CINCOCurCtrEnbSff": 0,
-    "CINCOCurCtrEnbSin": 0,
-    "CINCOCurCtrEnbTff": 0,
-    "CINCOCurCtrPar": 0,
-    "CINCODacGain": 13,
-    "CINCOLogBufferOverlayRaw": 0,
-    "CINCOMappingPos": 0,
-    "CINCOMcScriptReal64": 0,
-    "CINCOMovePathActuals": 5,
-    "CINCOPosCtrPar": 0,
-    "CINCOProcedure": 1339,
-    "CINCOProcessImageAdc": 13,
-    "CINCOProcessImageAdc_int32": 2,
-    "CINCOProcessImageAdc_uint32": 11,
-    "CINCORampError": 5,
-    "CINCORangeComboAdc": 2,
-    "CINCORangeComboDac": 0,
-    "CINCOStackUsage": 78,
-    "CINCOTaskState": 78,
-    "CINCOTimebase": 3,
-    "CINCOWatchdog": 0,
-    "CINCObitdyn": 7,
-    "CINCOfixed64Config": 0,
-    "CINCOfloatdyn": 3,
-    "CINCOfltConfig": 2194,
-    "CINCOint32dyn": 0,
-    "CINCOintConfigCombo": 776,
-    "CINCOjobinststring": 0,
-    "CINCOlifeS": 0,
-    "CINCOnvbit": 0,
-    "CINCOnvuint8combo": 8,
-    "CINCOoverwriteChannel": 203,
-    "CINCOoverwriteImage": 6,
-    "CINCOreal64RingBuffer": 0,
-    "CINCOreal64dyn": 0,
-    "CINCOresbit": 24,
-    "CINCOsimlevel": 9,
-    "CINCOslowmotion": 6,
-    "CINCOstringdyn": 25,
-    "CINCOuint32RingBuffer": 0,
-    "CINCOuint32comboRingBuffer": 0,
-    "CINCOuint32dyn": 59,
-    "CINCOuint32mask": 5,
-    "CINCOuint8dyn": 4,
-    "CINOSDataObject": 5,
-    "CINOSDataPropertyNbr": 0,
-    "CINOSDataPropertyStr": 9,
-    "CINOSDataStream": 0,
-    "CINOSMcModuleWaitBit": 0,
-    "CINOSMcScriptPart": 0,
-    "CINOSMovePathPartLinear": 0,
-    "CINOSServiceIpv4Elvis": 1,
-    "CINOSTaskExCmdDesc": 0,
-    "CINOSTaskExDeferredMsg": 0,
-    "CINOSTaskExState": 35,
-    "CINOSxmsHandlerFunction": 0,
-    "RampGenerator": 0,
-    "SINOSCOPSioCharBuffer": 0,
-    "SINOSMcTargetDataPendingImage": 0,
-    "SINOSPolygonPoint": 0,
-    "SINOSRampData": 0,
-    "SINOSShapeTimeRequest": 0,
-    "SINOSSockAddr": 0,
-    "SINOSSpeedBlock": 0,
-    "SINOSSpeedRed": 0,
-    "STable": 0,
-    "CINCOCOPport32": 8,
-    "CINCOCOPport32combo": 0,
-    "CINCOItemConfigDeco": 991,
-    "CINCOVBuffer": 0,
-    "CINCOcode": 2184,
-    "CINCOgin_uint16": 36,
-    "CINCOgin_uint32": 66,
-    "CINCOjobinst": 0,
-    "CINCOnvcounter": 0,
-    "CINCOscriptinst": 0,
-    "CINCOscriptinststring": 0,
-    "CINOSBusChannelHandler": 3,
-    "CINOSFilterBitT": 0,
-    "CINOSInAnlBit": 0,
-    "CINOSMcModuleWaitAdc": 0,
-    "CINOSMcModuleWaitVarT": 0,
-    "CINOSMcScriptFlgHnd": 0,
-    "CINOSMcScriptMeetDesc": 0,
-    "CINOSMcScriptSyncDesc": 0,
-    "CINOSMoveCache": 0,
-    "CINOSMovePathEvent": 0,
-    "CINOSOutAnlBit": 0,
-    "CINOSRampSeg": 0,
-    "CINOSRampSegP5": 0,
-    "CINOSRampSegPos": 0,
-    "CINOSShapePartLinear": 0,
-    "HelixTrajSeg": 0,
-    "SINOSCalibPoint": 0,
-    "SINOSMcTargetCommTestJob": 0,
-    "SINOSMcTargetCommTransaction": 0,
-    "SINOSMcTargetImageTransferRecJob": 0,
-    "SINOSMcTargetImageTransferSndJob": 0,
-    "SINOSProcessImageChannelHook": 0,
-    "SINOSRampDataEx": 17,
-    "SINOSShapeInfo": 0,
-    "SIcon": 0,
-    "TINOSMcValchar*": 0,
-    "CINCOMinMaxReal64": 70,
-    "CINCOVContiguousBuffer": 0,
-    "CINCOVImageTransfer": 0,
-    "CINCOVIntKeyValue": 0,
-    "CINCOVItemProperties": 0,
-    "CINCOVResizableBuffer": 0,
-    "CINCOcmdinst": 0,
-    "CINCOcmdinststring": 0,
-    "CINOSControlParamSet": 0,
-    "CINOSMcCoordRegion": 0,
-    "CINOSMcModuleWaitPos": 0,
-    "CINOSMcTargetStateTransitionSequenceEntity": 0,
-    "CINOSNurbsPointN": 0,
-    "CINOSRampCache": 1,
-    "CINOSRampSegCns": 1,
-    "CINOSRefCount": 0,
-    "CINOSTrqLimitMerge": 0,
-    "CInosTcpConnection": 0,
-    "SGINModuleMemoryRegion": 4,
-    "SGinModuleMemoryRegionTable": 0,
-    "SINOSBusHook": 37,
-    "SINOSMovePathActual": 1,
-    "SINOSShapeCmd": 0,
-    "CINCOLogger": 0,
-    "CINCOTable": 96,
-    "CINCOTaskExProcedure": 22,
-    "CINCOstringlambda": 3,
-    "CINOSBusPortHandler": 0,
-    "CINOSFilterEWMAT": 0,
-    "CINOSFilterMAvgT": 0,
-    "CINOSMcLuaMutex": 0,
-    "CINOSMcLuaSemaphore": 0,
-    "CINOSMcNvRamString": 0,
-    "CINOSTransferLuaBuffer": 0,
-    "SHandShakeParam": 0,
-    "SINOSBusModule": 1,
-    "CINCOVGrowingBuffer": 2,
-    "CINCOVOperation": 2,
-    "CINCOVTokenCtrlSTokenEntry": 0,
-    "CINOSMcJobPart": 0,
-    "CINOSMcScriptLabel": 0,
-    "CINOSRampSegTra": 2,
-    "LinearTrajSeg": 0,
-    "SHandShakeParamB": 0,
-    "SINOSBusPort": 39,
-    "Trajectory": 0,
-    "CINCOMcScriptPart": 0,
-    "CINOSDataLock": 1,
-    "CINOSMovePathPartLinearBay": 0,
-    "CINOSShapeSet": 0,
-    "CINOSTaskExMsgTriggerTicks": 0,
-    "CUDPHandlerInfo": 0,
-    "SHSCurChn": 0,
-    "CINCOVGetTreeChildren": 1,
-    "CINOSBusPortHandlerInp": 8,
-    "CINOSBusPortHandlerOut": 8,
-    "CINOSBusPortHandlerRangeCondition": 0,
-    "CINOSDataTransferChannel": 0,
-    "CINOSLuaSFileBreakpointDecription": 0,
-    "CINOSMcRobotCmd": 0,
-    "CINOSMcScriptBlk": 0,
-    "CINOSRampSegSin": 0,
-    "CINOSRampSegTraPart": 256,
-    "SINOSBusInfo": 0,
-    "SINOSCOPModule": 4,
-    "SINOSCubicSplinePoint": 0,
-    "SINOSMovePathEventDesc": 0,
-    "CINCOVItemChildData": 1,
-    "CINOSBusPortHandlerPos": 8,
-    "CINOSMcScriptCmdDesc": 0,
-    "CINOSMutex": 6,
-    "CINOSServiceIpv4UdpS5": 1,
-    "SINOSMcRobotCmdLinearPart": 0,
-    "TransRampSeg": 0,
-    "tblINCO_SLA": 13,
-    "CINCOTables": 1,
-    "CINCOVConditionVariable": 0,
-    "CINOSBaseAxisParamSet": 16,
-    "CINOSBusPortHandlerPt1": 0,
-    "CINOSBusPortHandlerRange": 2,
-    "CINOSBusPortHandlerThc": 0,
-    "CINOSConditionVariable": 0,
-    "CINOSDataTransferManager": 0,
-    "CINOSEvent": 0,
-    "CINOSMcJobPartSync": 0,
-    "CINOSMcJobPartWait": 0,
-    "CINOSSafetyConfig": 0,
-    "CINOSSemaphore": 56,
-    "CINOSServiceIpv4UdpHandlers": 0,
-    "CINOSSync": 17,
-    "CINOSTaskExMsgParam": 10797,
-    "CINOSTaskExMsgTriggerVar": 0,
-    "SGINModule": 0,
-    "SGINModuleCOP": 2,
-    "SINOSEventDesc": 0,
-    "SINOSMcRobotCmdLinearEvent": 0,
-    "SINOSMcRobotCmdMoveEvent": 0,
-    "SINOSRampParam": 7,
-    "CINOSBaseMotor": 5,
-    "CINOSDataTransferChannelPdp": 2,
-    "CINOSMcRobotCmdInit": 0,
-    "CINOSMcRobotInitSync": 0,
-    "CINOSMcRobotSync": 0,
-    "CINOSMcSync": 0,
-    "CINOSMcSyncMsg": 0,
-    "CINOSServices": 0,
-    "CINOSTimeEvent": 0,
-    "SHSCustomAdcChn": 0,
-    "SHSCustomDacChn": 0,
-    "CINOSBaseRampParamSet": 16,
-    "CINOSBitClearedEvent": 0,
-    "CINOSBitSetEvent": 0,
-    "CINOSBusPortHandlerAdc": 22,
-    "CINOSEventMessageReader": 3,
-    "CINOSMultiSync": 0,
-    "CINOSTaskExMsgHistory": 0,
-    "CTransformDelayedUnit": 0,
-    "SGINSubModule": 0,
-    "SINOSBusPortHandler": 0,
-    "CHttpParentResource": 0,
-    "CINCOVItemData": 0,
-    "CINOSBusPortHandlerRef": 0,
-    "CINOSMcRobotCmdCalib": 0,
-    "CINOSOutPwm": 4,
-    "CINOSSafetyConfigControl": 0,
-    "CTransform": 0,
-    "SINOSMcRobotCmdShapeEvent": 0,
-    "CINOSBusPortHandlerDac": 30,
-    "CINOSMcJobPartBlock": 0,
-    "CINOSMcJobPartStop": 0,
-    "CINOSMovePathPartCircle": 0,
-    "CINOSQueue": 54,
-    "CINOSServiceIpv4UdpHandler": 0,
-    "CINOSServiceIpv4UdpModbus": 0,
-    "CINOSShapePartCircle": 0,
-    "CINOSTaskExMsgDefaultParam": 40,
-    "SGINModuleActive": 0,
-    "SINOSRawLine": 0,
-    "SINOSMcJobPartDesc": 0,
-    "CINOSDataTransferMethod": 0,
-    "CINOSMcRobotCmdMove": 0,
-    "CINOSServicePdp": 1,
-    "CINOSTimingStatistics": 0,
-    "CTransformDelayed": 0,
-    "CINCOMcScriptString": 0,
-    "CINOSCubicSplineSeg": 0,
-    "CINOSIncoAction": 2,
-    "CINOSMovePathSegmentN": 0,
-    "CINOSRampCacheEntry": 0,
-    "SINOSBusPortHandlerInp": 8,
-    "SINOSBusPortHandlerOut": 8,
-    "CINCOConObject": 57,
-    "CINOSBusPort": 39,
-    "CINOSDataTransferLuaEndpoint": 2,
-    "CINOSMcJobPartScript": 0,
-    "CINOSMcScriptEvtHnd": 0,
-    "CINOSMovePathSegmentNurbsN": 0,
-    "SStreamVar": 0,
-    "CINCOCOPDevice": 0,
-    "CINOSMcScriptCmd": 0,
-    "CINOSMovePathInterpolatorSegment": 0,
-    "CINOSMovePathSegmentBaseN": 0,
-    "CINOSMovePathCurveN": 0,
-    "CINOSMovePathCurveNurbsN": 0,
-    "CINOSMcLuaEvtDesc": 0,
-    "CINOSMovePathPartClothoid": 0,
-    "CINOSServiceSio": 0,
-    "CINOSMcScriptEvtDesc": 0,
-    "SINOSBusPortHandlerRef": 0,
-    "SINOSMcRobotCmdCalibPart": 0,
-    "SINOSMcRobotCmdMovePart": 0,
-    "TINOSMotionFrameN": 0,
-    "CINOSMcRobotCmdEndless": 0,
-    "CINOSMcRobotCmdMoveToBorder": 0,
-    "SINOSBusPortHandlerAdc": 22,
-    "SINOSBusPortHandlerDac": 30,
-    "SINOSBusPortHandlerPos": 8,
-    "SINOSMcRobotCmdInitPart": 0,
-    "CINOSMcJobPartDesc": 0,
-    "CINOSRampJob": 1,
-    "CINOSBusPortHandlerTdc": 0,
-    "CINOSMcRobotCmdLinear": 0,
-    "CINOSMcRobotCmdMoveCarefully": 0,
-    "CINOSMcRobotCmdMoveToBorderApp": 0,
-    "CINOSTaskExMsgTriggerEvent": 0,
-    "SHSLdcChn": 0,
-    "CINOSMcLuaTask": 0,
-    "CINOSMovePathInterpolator": 0,
-    "CINOSMovePathInterpolatorNone": 0,
-    "CINOSServiceSyncShift": 1,
-    "CINOSSynchronizedAxes": 0,
-    "SINOSBusPortHandlerTdc": 0,
-    "CINCOVTransmissionRequest": 0,
-    "CINOSMcNvRamLongString": 0,
-    "CINOSMcDataPropExMem": 0,
-    "CINOSMcRobot": 0,
-    "CINOSMcRobotCmdShape": 0,
-    "CINOSTaskExMsg": 2403,
-    "CINOSTaskExMsgUser": 0,
-    "McJobData": 0,
-    "CINOSLuaCModule": 5,
-    "CINOSMcLuaPendingCall": 0,
-    "TINOSDataChannelDataPacketBufferTEntryCntCount": 2,
-    "CINOSExceptionMsg": 0,
-    "CINOSMoveCacheEntry": 0,
-    "CINOSServiceIpv4Udp": 1,
-    "SINOSPausedDesc": 0,
-    "CINOSMcRobotCmdMoveEx": 0,
-    "CINOSMcTargetSubscription": 26,
-    "SDT2Table": 0,
-    "CINOSMcRobotCmdMoveToDigitalSensor": 0,
-    "CINOSSafetyConfigMonitor": 0,
-    "SINOSBusPortHandlerPt1": 0,
-    "CINOSLua": 1,
-    "MovePath": 1,
-    "SINOSBusPortHandlerThc": 0,
-    "SINOSMcTargetTimeSyncJob": 0,
-    "CINOSFollowAxis": 0,
-    "CINOSMcDataProp": 0,
-    "CINOSCOPSioChannel": 0,
-    "SINOSMcLuaBreakpoint": 0,
-    "CINOSTestpoint": 0,
-    "CINOSCalib": 0,
-    "CINOSCartesian": 0,
-    "CINOSMapping": 0,
-    "CINOSBusModule": 0,
-    "CINOSDataTransferChannelUdp": 3,
-    "CINOSDataTransferEndpoint": 0,
-    "CINOSDataTransferEndpointSync": 1,
-    "CINOSNurbsCurveN": 0,
-    "CINOSDataTransferEndpointAsync": 2,
-    "CINOSStream": 0,
-    "CINOSMcRobotCmdMoveToAnalogSensor": 0,
-    "CINOSDataTransferMethodSequential": 5,
-    "CINOSLuaBreakpoint": 0,
-    "CINOSMovePath": 0,
-    "CINOSImage": 0,
-    "CINOSImageData": 0,
-    "CINOSImageDataJson": 0,
-    "CINOSImageDtb": 0,
-    "CINOSImageHx": 0,
-    "CINOSImageMovePath": 0,
-    "CINOSImageMultiple": 0,
-    "CINOSImageSingle": 89,
-    "CINOSImageDt2": 27,
-    "CINOSImageMovePathXml": 0,
-    "CINOSMcCron": 0,
-    "CINOSMcModuleRes": 82,
-    "CINOSImageDataXml": 1,
-    "CINOSMcScriptInst": 0,
-    "CINOSBusLocalModule": 1,
-    "CINCODataLogger-logbuffer": 0,
-    "CINOSMcTargetCommFrame": 32,
-    "CINOSTaskExMsgParamEx": 0,
-    "SINOSStreamSet": 0,
-    "CINCOFrame": 32,
-    "SINOSRampJobLookAhead": 0,
-    "SINOSEventLogBuffer": 6144,
-    "CINCOLogBufferOverlayDeflated": 0,
-    "CINCOVThreadImpl": 0,
-    "CINOSControl": 0,
-    "CINOSMcValve": 0,
-    "CINOSServiceMcRobot": 1,
-    "CINOSBaseControl": 0,
-    "CINOSBusSio": 0,
-    "CINOSBaseController": 0,
-    "CINOS2PtController": 0,
-    "CINOSEventLogger": 3,
-    "CINOSContainerT": 0,
-    "CINOSMovePathTrajectory": 0,
-    "CINOSGsbControl": 0,
-    "CINOSMcRobotCmdMoveSafe": 0,
-    "CINOSHSSIControl": 0,
-    "CINOSPwmControl": 0,
-    "CINOSSl2Control": 0,
-    "CINOSMovePathTrajectoryConstant": 0,
-    "CINOSKrgControl": 0,
-    "SINOSMcMessageDesc": 0,
-    "CInosTcpServer": 0,
-    "CRuleEntry": 0,
-    "CINOSMcJobInst": 0,
-    "CINOSPosControl": 5,
-    "CINOSMcBaseJob": 0,
-    "CINOSMcBaseScript": 0,
-    "CINOSMcData": 1,
-    "CINOSMcDataInst": 0,
-    "CTcpClient": 0,
-    "CINOSBaseRamp": 0,
-    "CINOSJerkRamp": 7,
-    "CINOSJerkRmsRamp": 0,
-    "CINOSTrapezeRamp": 0,
-    "CGINSlave": 0,
-    "CINOSJerkTrqRamp": 0,
-    "CINOSBaseAxis": 0,
-    "CINOSCurControl": 0,
-    "CINOSModbusSlv": 0,
-    "CMcResultStreamSDynamicBuffer": 0,
-    "SINOSCOPModuleEeprom": 0,
-    "SINOSCOPScanMod": 0,
-    "CINOSMcLuaJob": 0,
-    "CINOSMcLuaScript": 0,
-    "CINCODataLoggerReader": 0,
-    "CINOSShape": 0,
-    "CINOSPhysicalAxis": 5,
-    "CGINModule": 0,
-    "CGINModuleActive": 0,
-    "CINOSSioTft": 0,
-    "CINOSPolygon": 0,
-    "CGINDeviceCOP": 2,
-    "CINOSMcScript": 0,
-    "TINOSDataChannelDataPacketDefaultT1CountT2": 1,
-    "CINOSCOPModule": 4,
-    "CGINDeviceCOPMain": 1,
-    "CINOSGCode": 0,
-    "CINOSCubicSpline": 0,
-    "CINCOVServerSession": 1,
-    "CINOSMcJob": 0,
-    "CGINModuleCOP": 2,
-    "CINOSTaskEx": 0,
-    "CImageBurnerTask": 0,
-    "CINOSMovePathHelper": 0,
-    "CIncoWorker": 1,
-    "CINCOVParseImage": 0,
-    "CINOSCOPSio": 1,
-    "CINOSMcCoord": 0,
-    "CINOSMcMessage": 2,
-    "CINOSMcFastLoad": 1,
-    "CINCOVFrameHandler": 0,
-    "CINOSMcTargetAxis": 1,
-    "CINOSMcTargetBase": 0,
-    "CINOSMcTargetBoot": 1,
-    "CINOSMcTargetFieldbusMaster": 0,
-    "CINOSMcTargetNvRam": 1,
-    "CINOSMcTargetResource": 0,
-    "CINOSMcTargetDtb": 1,
-    "CINOSMcTargetFieldbusMasterGinLink": 0,
-    "CINOSMcTargetHx": 1,
-    "CINOSMcTargetImage": 1,
-    "CINOSMcTargetImageTransfer": 1,
-    "CINOSMcTargetData": 1,
-    "CINOSMcTargetFieldbusMasterLocalbus": 0,
-    "CINOSMcTargetDt2": 1,
-    "CINCOVDiscovery": 1,
-    "CINCOVAccessController": 1,
-    "CINOSMcTargetMovePath": 1,
-    "CINOSMcTargetSystem": 1,
-    "CINOSMcTargetXlog": 1,
-    "CINOSMcRobotAxis": 7,
-    "CINOSMcTargetFieldbusSlave": 0,
-    "CINCOVParseItem": 1,
-    "CINOSMcTargetFieldbusSlaveLocalbus": 0,
-    "CTcpHandler": 0,
-    "CTcpReceiver": 1,
-    "CINOSMcGuardian": 0,
-    "CINOSMcTarget": 1,
-    "CTcpServer": 0,
-    "CTcpSender": 1,
-    "CHttpServer": 1,
-    "CINOSMcLua": 1,
-    "CINOSLogTransferEndpoint": 0,
-    "SINOSCOPMaster": 0,
-    "CINOSMcTargetMessageRouter": 1,
-    "CINOSMcTargetFieldbusSlaveGinLink": 0,
-    "CINOSMcTargetTimeSync": 1,
-    "CINOSMcModule": 0,
-    "DVTAnalogIo": 1,
-    "DVTLoggerBase": 0,
-    "DVTLoggerTester": 0,
-    "CINOSCOPMaster": 2,
-    "DVTLoggerBonder": 1,
-    "DVTHeadWatchdogX6": 0,
-    "DVTOneWireDevice": 0,
-    "DVTMachine": 1,
-    "CINOSMcGinHmi": 0,
-    "CINOSMcSystemTest": 0,
-    "DVTUltraSonic": 1,
-    "DVTFlameoff": 0,
-    "DVTWireClampPwm": 1,
-    "DVTWireFeederX6": 0,
-    "DVTWireClampStepperX6": 0,
-    "DVTBondWeight": 1,
-    "DVTWireFeeder58": 0,
-    "DVTWireClampStepper58": 0,
-    "CINOSMcTargetCommTest": 1,
-    "DVTDusgx": 0,
-    "CINCOAsyncResultMgr": 1,
-    "DVTDrivesBonder": 1,
-    "DVTCartridgeEepromX6": 0,
-    "CINOSSockAddrTable": 0,
-    "CINOSBusLocal": 1,
-    "DVTDigitalIo": 1,
-    "CHttpINCOVResource": 0,
-    "CINOSMovePathInterpolatorClothoid": 0,
-    "CINOSMovePathInterpolatorBlend": 0,
-    "CINOSMovePathInterpolatorShape": 0,
-    "CINOSMovePathTrajectorySegment": 0,
-    "DVTDrivesTester": 0,
-    "CGINLink": 1,
-    "CINOSTaskExMsgParamINCOV": 0,
-    "SINOSBusHandlerBuffer": 0,
-    "CINCOVPreallocatedBufferN": 0,
-    "CINOSMovePathInterpolatorNurbs": 0,
-    "CINCODataLogger": 0,
-    "CINCOVParse": 0,
-    "CINCOVProtoBuffer": 0,
-    "CProtofbufClone": 1,
-    "SProcedureData": 0,
-    "CWebSocketResponder": 0,
-    "CINOSMovePathTrajectoryLookAHead": 0,
-    "DVTHeadEepromX6": 0,
-    "CWebSocketClient": 1,
-    "DvtHeadEeprom58": 1,
-    "CHttpClient": 1,
-    "CINCOVTokenCtrl": 1
+    "alloc": 27360208,
+    "used": 27056328,
+    "classes": {
+        "CCachedFrame": {
+            "memory": 0,
+            "count": 0
+        },
+        "CHttpConnectInfoResource": {
+            "memory": 0,
+            "count": 0
+        },
+        "CHttpLeafResource": {
+            "memory": 0,
+            "count": 0
+        },
+        "CHttpResource": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOItemConfig": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOLoggers": {
+            "memory": 8,
+            "count": 1
+        },
+        "CINCOVParseAuthServer": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOVParseOperation": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOVParseProcedure": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOVParseSession": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOVThread": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOdatetimeConfig": {
+            "memory": 16,
+            "count": 2
+        },
+        "CINOSCalibs": {
+            "memory": 8,
+            "count": 1
+        },
+        "CINOSDataChannelPacketInformationPdp": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSDataChannelPacketInformationSio": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSHooks": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMappings": {
+            "memory": 8,
+            "count": 1
+        },
+        "CINOSMcLuaMutexSWaitingTask": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcLuaWeakPtrT": {
+            "memory": 312,
+            "count": 39
+        },
+        "CINOSMcNvRamGrp": {
+            "memory": 8,
+            "count": 1
+        },
+        "CINOSMcVal": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSStreams": {
+            "memory": 8,
+            "count": 1
+        },
+        "CINOSTaskExMsgTrigger": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSUBoot": {
+            "memory": 0,
+            "count": 0
+        },
+        "SConnectionInfo": {
+            "memory": 0,
+            "count": 0
+        },
+        "SDT2Record": {
+            "memory": 600,
+            "count": 75
+        },
+        "SINOSMcMessageJson": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSglobalstring": {
+            "memory": 7320,
+            "count": 915
+        },
+        "STLSKey": {
+            "memory": 8,
+            "count": 1
+        },
+        "STLSKeyData": {
+            "memory": 40,
+            "count": 5
+        },
+        "CBinNode": {
+            "memory": 551632,
+            "count": 34477
+        },
+        "CDbgDataReader": {
+            "memory": 0,
+            "count": 0
+        },
+        "CHttpCallProcResource": {
+            "memory": 0,
+            "count": 0
+        },
+        "CHttpIncoResource": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOObjectConfig": {
+            "memory": 110624,
+            "count": 6914
+        },
+        "CINCOProcedureConfig": {
+            "memory": 19520,
+            "count": 1220
+        },
+        "CINCOVariableConfig": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCObitConfig": {
+            "memory": 73680,
+            "count": 4605
+        },
+        "CINCOstringConfig": {
+            "memory": 105392,
+            "count": 6587
+        },
+        "CINOSBalancedBinaryTree": {
+            "memory": 111664,
+            "count": 6979
+        },
+        "CINOSChannelHook": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSDataAttribute": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSDataAttributeStr": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSDataChannelPacketInformationUdp": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSDataChannelPropertiesPdp": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSDataChannelPropertiesUdp": {
+            "memory": 48,
+            "count": 3
+        },
+        "CINOSDoubleLinkedList": {
+            "memory": 96,
+            "count": 6
+        },
+        "CINOSException": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSExceptionCleanup": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSHook": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMatrix": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcLuaWaitingCommand": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcNvRamVal": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcScriptCmdIncompleteDesc": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcScriptCmdPndDesc": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcValves": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMovePathPart": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSSafeConfig": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSSafeConfigUidMapping": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSService": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSShapePart": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSString": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSStringData": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSSyncNode": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSTaskExMsgNode": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSxmsHandlerBase": {
+            "memory": 0,
+            "count": 0
+        },
+        "CListNode": {
+            "memory": 1408,
+            "count": 88
+        },
+        "ConstRampSeg": {
+            "memory": 0,
+            "count": 0
+        },
+        "DVTLoggerStreamConnectionHandler": {
+            "memory": 0,
+            "count": 0
+        },
+        "OperatorNew": {
+            "memory": 14761168,
+            "count": 18199
+        },
+        "SChannelFdItem": {
+            "memory": 0,
+            "count": 0
+        },
+        "SDataString": {
+            "memory": 0,
+            "count": 0
+        },
+        "SGININCOFrameMas": {
+            "memory": 0,
+            "count": 0
+        },
+        "SHandShakeParamTce": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSBaseAxisHook": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSBusInfoHook": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSControlErrorHook": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSLuaBreakpointInstance": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSMcMessageConnection": {
+            "memory": 16,
+            "count": 1
+        },
+        "SINOSMcTargetCommIoctlSubscription": {
+            "memory": 32,
+            "count": 2
+        },
+        "SINOSMcTargetImageTransferJob": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSMcTargetMessageRouterTransaction": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSMemMapHook": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSSetWord": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSSystemCheck": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSTargetHook": {
+            "memory": 0,
+            "count": 0
+        },
+        "TINOSMcValT": {
+            "memory": 0,
+            "count": 0
+        },
+        "CGINLinkDiagnosisCounter": {
+            "memory": 312,
+            "count": 13
+        },
+        "CINCODataAttributeNbr": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCODataAttributeStr": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCODataItem": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCODataObject": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCODataObjectInfo": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCODataPropertyNbr": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCODataPropertyStr": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCODeadTimeMs": {
+            "memory": 96,
+            "count": 4
+        },
+        "CINCODelayToHalt": {
+            "memory": 96,
+            "count": 4
+        },
+        "CINCOEvtLoggerGet": {
+            "memory": 72,
+            "count": 3
+        },
+        "CINCOGINModuleInfo": {
+            "memory": 24,
+            "count": 1
+        },
+        "CINCOHwDeviceInfo": {
+            "memory": 864,
+            "count": 36
+        },
+        "CINCOIPuint8": {
+            "memory": 24,
+            "count": 1
+        },
+        "CINCOItem": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOLogBufferOverlay": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOMcLuaPendingCalls": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOObject": {
+            "memory": 112272,
+            "count": 4678
+        },
+        "CINCOProcessImageBit": {
+            "memory": 4080,
+            "count": 170
+        },
+        "CINCOProcessImageBitFilter": {
+            "memory": 2112,
+            "count": 88
+        },
+        "CINCOProcessImageBitInverted": {
+            "memory": 3984,
+            "count": 166
+        },
+        "CINCOProcessImageDac": {
+            "memory": 480,
+            "count": 20
+        },
+        "CINCOProcessImageDac_int32": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOProcessImageDac_real64": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOProcessImageDac_uint32": {
+            "memory": 384,
+            "count": 16
+        },
+        "CINCOProcessImagePos": {
+            "memory": 384,
+            "count": 16
+        },
+        "CINCOSystemMicroToDurationSec": {
+            "memory": 24,
+            "count": 1
+        },
+        "CINCOTstPosition": {
+            "memory": 1728,
+            "count": 72
+        },
+        "CINCOTstValue": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOVariable": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOactSEx": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOaxslifetime": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOaxspos": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCObit": {
+            "memory": 97128,
+            "count": 4047
+        },
+        "CINCObool": {
+            "memory": 1920,
+            "count": 80
+        },
+        "CINCOcmdJ": {
+            "memory": 96,
+            "count": 4
+        },
+        "CINCOcmdJs": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOcmdaxspos": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOctrcycletime": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOdatetime": {
+            "memory": 48,
+            "count": 2
+        },
+        "CINCOdouble": {
+            "memory": 30888,
+            "count": 1287
+        },
+        "CINCOentity": {
+            "memory": 48,
+            "count": 2
+        },
+        "CINCOentries": {
+            "memory": 24,
+            "count": 1
+        },
+        "CINCOerror": {
+            "memory": 96,
+            "count": 4
+        },
+        "CINCOfixed32": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOfixed64": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOflag": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOfloat": {
+            "memory": 912,
+            "count": 38
+        },
+        "CINCOint16": {
+            "memory": 96,
+            "count": 4
+        },
+        "CINCOint32": {
+            "memory": 3312,
+            "count": 138
+        },
+        "CINCOint32combo": {
+            "memory": 96,
+            "count": 4
+        },
+        "CINCOint8": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOintConfig": {
+            "memory": 249048,
+            "count": 10377
+        },
+        "CINCOldcflt": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOldcval": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOnvint32": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOnvlstring": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOnvreal64": {
+            "memory": 48,
+            "count": 2
+        },
+        "CINCOnvstring": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOnvstringCombo": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOnvuint32": {
+            "memory": 24,
+            "count": 1
+        },
+        "CINCOnvuint32combo": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOparam_string": {
+            "memory": 8400,
+            "count": 350
+        },
+        "CINCOparam_stringCombo": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOpidDelayToHalt": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOresval": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOstring": {
+            "memory": 145368,
+            "count": 6057
+        },
+        "CINCOstringCombo": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOstringConfigCombo": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOstringConstPtr": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOtcmdJ": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOtcmdJs": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOticks": {
+            "memory": 384,
+            "count": 16
+        },
+        "CINCOticksUnsigned": {
+            "memory": 576,
+            "count": 24
+        },
+        "CINCOticks_to_ms": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOticks_to_percent": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOticks_to_sec": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOtriggertasklogger": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOuint16": {
+            "memory": 19464,
+            "count": 811
+        },
+        "CINCOuint16combo": {
+            "memory": 144,
+            "count": 6
+        },
+        "CINCOuint32": {
+            "memory": 192288,
+            "count": 8012
+        },
+        "CINCOuint32Overrun": {
+            "memory": 72,
+            "count": 3
+        },
+        "CINCOuint32be": {
+            "memory": 17112,
+            "count": 713
+        },
+        "CINCOuint32combo": {
+            "memory": 12552,
+            "count": 523
+        },
+        "CINCOuint8": {
+            "memory": 5232,
+            "count": 218
+        },
+        "CINCOuint8combo": {
+            "memory": 456,
+            "count": 19
+        },
+        "CINOSAssertException": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSBinaryWriter": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSBusLocalModuleInfo": {
+            "memory": 24,
+            "count": 1
+        },
+        "CINOSDataAttributeNbr": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSDataChannel": {
+            "memory": 72,
+            "count": 3
+        },
+        "CINOSDataChannelDataPacketDynamic": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSDataChannelPropertiesSio": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSDataItem": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSDataProperty": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSDataStreamItem": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSIncoString": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcModuleWaitObj": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcTargetStateTransitionSequence": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSRampJobPart": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSSafetyConfigBin": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSShapePartAbs": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSShapePartInc": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSxmsHandler": {
+            "memory": 72,
+            "count": 3
+        },
+        "CMcResult": {
+            "memory": 48,
+            "count": 2
+        },
+        "CTFTIELuint8": {
+            "memory": 0,
+            "count": 0
+        },
+        "SCOPBusTableEntry": {
+            "memory": 0,
+            "count": 0
+        },
+        "SCorr": {
+            "memory": 0,
+            "count": 0
+        },
+        "SGINDprRequest": {
+            "memory": 0,
+            "count": 0
+        },
+        "SGINModuleCOPMasterTableEntry": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSHwInterfaceFrameHnd": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSMcMessageListener": {
+            "memory": 48,
+            "count": 2
+        },
+        "SINOSMcTargetCommSubscription": {
+            "memory": 96,
+            "count": 4
+        },
+        "SINOSPolygonInter": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSSpeedPoint": {
+            "memory": 0,
+            "count": 0
+        },
+        "SLPoint": {
+            "memory": 0,
+            "count": 0
+        },
+        "TINOSFilterT": {
+            "memory": 0,
+            "count": 0
+        },
+        "TINOSMcNvRamValT": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOActPosition": {
+            "memory": 128,
+            "count": 4
+        },
+        "CINCOActValue": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOBusModuleErrorCounter": {
+            "memory": 128,
+            "count": 4
+        },
+        "CINCOCOPdpr_uint16": {
+            "memory": 576,
+            "count": 18
+        },
+        "CINCOCOPdpr_uint32": {
+            "memory": 1056,
+            "count": 33
+        },
+        "CINCOCOPport16": {
+            "memory": 3072,
+            "count": 96
+        },
+        "CINCOCOPport16combo": {
+            "memory": 512,
+            "count": 16
+        },
+        "CINCOCOPram_int16": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOCOPram_int32": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOCOPram_int8": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOCOPram_uint16": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOCOPram_uint16combo": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOCOPram_uint32": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOCOPram_uint32combo": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOCOPram_uint8": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOCOPram_uint8combo": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOCurCtrEnbSff": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOCurCtrEnbSin": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOCurCtrEnbTff": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOCurCtrPar": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCODacGain": {
+            "memory": 512,
+            "count": 16
+        },
+        "CINCOLogBufferOverlayRaw": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOMappingPos": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOMcScriptReal64": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOMovePathActuals": {
+            "memory": 128,
+            "count": 4
+        },
+        "CINCOPosCtrPar": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOProcedure": {
+            "memory": 38688,
+            "count": 1209
+        },
+        "CINCOProcessImageAdc": {
+            "memory": 416,
+            "count": 13
+        },
+        "CINCOProcessImageAdc_int32": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOProcessImageAdc_uint32": {
+            "memory": 96,
+            "count": 3
+        },
+        "CINCORampError": {
+            "memory": 128,
+            "count": 4
+        },
+        "CINCORangeComboAdc": {
+            "memory": 160,
+            "count": 5
+        },
+        "CINCORangeComboDac": {
+            "memory": 128,
+            "count": 4
+        },
+        "CINCOStackUsage": {
+            "memory": 2528,
+            "count": 79
+        },
+        "CINCOTaskState": {
+            "memory": 2528,
+            "count": 79
+        },
+        "CINCOTimebase": {
+            "memory": 96,
+            "count": 3
+        },
+        "CINCOWatchdog": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCObitdyn": {
+            "memory": 128,
+            "count": 4
+        },
+        "CINCOfixed64Config": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOfloatdyn": {
+            "memory": 96,
+            "count": 3
+        },
+        "CINCOfltConfig": {
+            "memory": 51328,
+            "count": 1604
+        },
+        "CINCOint32dyn": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOintConfigCombo": {
+            "memory": 21024,
+            "count": 657
+        },
+        "CINCOirqticks": {
+            "memory": 512,
+            "count": 16
+        },
+        "CINCOjobinststring": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOlifeS": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOnvbit": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOnvuint8combo": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOoverwriteChannel": {
+            "memory": 6624,
+            "count": 207
+        },
+        "CINCOoverwriteImage": {
+            "memory": 192,
+            "count": 6
+        },
+        "CINCOreal64RingBuffer": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOreal64dyn": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOresbit": {
+            "memory": 32,
+            "count": 1
+        },
+        "CINCOsimlevel": {
+            "memory": 32,
+            "count": 1
+        },
+        "CINCOslowmotion": {
+            "memory": 32,
+            "count": 1
+        },
+        "CINCOstringdyn": {
+            "memory": 928,
+            "count": 29
+        },
+        "CINCOuint32RingBuffer": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOuint32comboRingBuffer": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOuint32dyn": {
+            "memory": 1632,
+            "count": 51
+        },
+        "CINCOuint32mask": {
+            "memory": 128,
+            "count": 4
+        },
+        "CINCOuint8dyn": {
+            "memory": 128,
+            "count": 4
+        },
+        "CINOSDataObject": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSDataPropertyNbr": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSDataPropertyStr": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSDataStream": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcModuleWaitBit": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcScriptPart": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMovePathPartLinear": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSServiceIpv4Elvis": {
+            "memory": 32,
+            "count": 1
+        },
+        "CINOSTaskExCmdDesc": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSTaskExDeferredMsg": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSTaskExState": {
+            "memory": 960,
+            "count": 30
+        },
+        "CINOSxmsHandlerFunction": {
+            "memory": 0,
+            "count": 0
+        },
+        "RampGenerator": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSCOPSioCharBuffer": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSMcTargetDataPendingImage": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSPolygonPoint": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSRampData": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSShapeTimeRequest": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSSockAddr": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSSpeedBlock": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSSpeedRed": {
+            "memory": 0,
+            "count": 0
+        },
+        "STable": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOCOPport32": {
+            "memory": 400,
+            "count": 10
+        },
+        "CINCOCOPport32combo": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOItemConfigDeco": {
+            "memory": 26880,
+            "count": 672
+        },
+        "CINCOVBuffer": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOcode": {
+            "memory": 87360,
+            "count": 2184
+        },
+        "CINCOgin_uint16": {
+            "memory": 720,
+            "count": 18
+        },
+        "CINCOgin_uint32": {
+            "memory": 1320,
+            "count": 33
+        },
+        "CINCOjobinst": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOnvcounter": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOscriptinst": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOscriptinststring": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSBusChannelHandler": {
+            "memory": 240,
+            "count": 6
+        },
+        "CINOSFilterBitT": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSInAnlBit": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcModuleWaitAdc": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcModuleWaitVarT": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcScriptFlgHnd": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcScriptMeetDesc": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcScriptSyncDesc": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMoveCache": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMovePathEvent": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSOutAnlBit": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSRampSeg": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSRampSegP5": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSRampSegPos": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSShapePartLinear": {
+            "memory": 0,
+            "count": 0
+        },
+        "HelixTrajSeg": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSCalibPoint": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSMcTargetCommTestJob": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSMcTargetCommTransaction": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSMcTargetImageTransferRecJob": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSMcTargetImageTransferSndJob": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSProcessImageChannelHook": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSRampDataEx": {
+            "memory": 480,
+            "count": 12
+        },
+        "SINOSShapeInfo": {
+            "memory": 0,
+            "count": 0
+        },
+        "SIcon": {
+            "memory": 0,
+            "count": 0
+        },
+        "TINOSMcValchar*": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOMinMaxReal64": {
+            "memory": 2688,
+            "count": 56
+        },
+        "CINCOVContiguousBuffer": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOVImageTransfer": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOVIntKeyValue": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOVItemProperties": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOVResizableBuffer": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOcmdinst": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOcmdinststring": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSControlParamSet": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcCoordRegion": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcModuleWaitPos": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcTargetStateTransitionSequenceEntity": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSNurbsPointN": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSRampCache": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSRampSegCns": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSRefCount": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSTrqLimitMerge": {
+            "memory": 0,
+            "count": 0
+        },
+        "CInosTcpConnection": {
+            "memory": 0,
+            "count": 0
+        },
+        "SGINModuleMemoryRegion": {
+            "memory": 96,
+            "count": 2
+        },
+        "SGinModuleMemoryRegionTable": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSBusHook": {
+            "memory": 1296,
+            "count": 27
+        },
+        "SINOSMovePathActual": {
+            "memory": 48,
+            "count": 1
+        },
+        "SINOSShapeCmd": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOLogger": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOTable": {
+            "memory": 5656,
+            "count": 101
+        },
+        "CINCOTaskExProcedure": {
+            "memory": 616,
+            "count": 11
+        },
+        "CINCOstringlambda": {
+            "memory": 168,
+            "count": 3
+        },
+        "CINOSBusPortHandler": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSFilterEWMAT": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSFilterMAvgT": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcLuaMutex": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcLuaSemaphore": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcNvRamString": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSTransferLuaBuffer": {
+            "memory": 0,
+            "count": 0
+        },
+        "SHandShakeParam": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSBusModule": {
+            "memory": 280,
+            "count": 5
+        },
+        "CINCOVGrowingBuffer": {
+            "memory": 128,
+            "count": 2
+        },
+        "CINCOVOperation": {
+            "memory": 128,
+            "count": 2
+        },
+        "CINCOVTokenCtrlSTokenEntry": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcJobPart": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcScriptLabel": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSRampSegTra": {
+            "memory": 0,
+            "count": 0
+        },
+        "LinearTrajSeg": {
+            "memory": 0,
+            "count": 0
+        },
+        "SHandShakeParamB": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSBusPort": {
+            "memory": 2816,
+            "count": 44
+        },
+        "Trajectory": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOMcScriptPart": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSDataLock": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMovePathPartLinearBay": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSShapeSet": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSTaskExMsgTriggerTicks": {
+            "memory": 0,
+            "count": 0
+        },
+        "CUDPHandlerInfo": {
+            "memory": 0,
+            "count": 0
+        },
+        "SHSCurChn": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOVGetTreeChildren": {
+            "memory": 80,
+            "count": 1
+        },
+        "CINOSBusPortHandlerInp": {
+            "memory": 560,
+            "count": 7
+        },
+        "CINOSBusPortHandlerOut": {
+            "memory": 640,
+            "count": 8
+        },
+        "CINOSBusPortHandlerRangeCondition": {
+            "memory": 1280,
+            "count": 16
+        },
+        "CINOSDataTransferChannel": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSLuaSFileBreakpointDecription": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcRobotCmd": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcScriptBlk": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSRampSegSin": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSRampSegTraPart": {
+            "memory": 20480,
+            "count": 256
+        },
+        "SINOSBusInfo": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSCOPModule": {
+            "memory": 480,
+            "count": 6
+        },
+        "SINOSCubicSplinePoint": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSMovePathEventDesc": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOVItemChildData": {
+            "memory": 88,
+            "count": 1
+        },
+        "CINOSBusPortHandlerPos": {
+            "memory": 1408,
+            "count": 16
+        },
+        "CINOSMcScriptCmdDesc": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMutex": {
+            "memory": 528,
+            "count": 6
+        },
+        "CINOSServiceIpv4UdpS5": {
+            "memory": 88,
+            "count": 1
+        },
+        "SINOSMcRobotCmdLinearPart": {
+            "memory": 0,
+            "count": 0
+        },
+        "TransRampSeg": {
+            "memory": 0,
+            "count": 0
+        },
+        "tblINCO_SLA": {
+            "memory": 1144,
+            "count": 13
+        },
+        "CINCOTables": {
+            "memory": 96,
+            "count": 1
+        },
+        "CINCOVConditionVariable": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSBaseAxisParamSet": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSBusPortHandlerPt1": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSBusPortHandlerRange": {
+            "memory": 3936,
+            "count": 41
+        },
+        "CINOSBusPortHandlerThc": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSConditionVariable": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSDataTransferManager": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSEvent": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcJobPartSync": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcJobPartWait": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSSafetyConfig": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSSemaphore": {
+            "memory": 4992,
+            "count": 52
+        },
+        "CINOSServiceIpv4UdpHandlers": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSSync": {
+            "memory": 1728,
+            "count": 18
+        },
+        "CINOSTaskExMsgParam": {
+            "memory": 1026624,
+            "count": 10694
+        },
+        "CINOSTaskExMsgTriggerVar": {
+            "memory": 0,
+            "count": 0
+        },
+        "SGINModule": {
+            "memory": 0,
+            "count": 0
+        },
+        "SGINModuleCOP": {
+            "memory": 96,
+            "count": 1
+        },
+        "SINOSEventDesc": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSMcRobotCmdLinearEvent": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSMcRobotCmdMoveEvent": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSRampParam": {
+            "memory": 384,
+            "count": 4
+        },
+        "CINOSBaseMotor": {
+            "memory": 416,
+            "count": 4
+        },
+        "CINOSDataTransferChannelPdp": {
+            "memory": 208,
+            "count": 2
+        },
+        "CINOSMcRobotCmdInit": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcRobotInitSync": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcRobotSync": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcSync": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcSyncMsg": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSServices": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSTimeEvent": {
+            "memory": 0,
+            "count": 0
+        },
+        "SHSCustomAdcChn": {
+            "memory": 0,
+            "count": 0
+        },
+        "SHSCustomDacChn": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSBaseRampParamSet": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSBitClearedEvent": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSBitSetEvent": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSBusPortHandlerAdc": {
+            "memory": 1344,
+            "count": 12
+        },
+        "CINOSEventMessageReader": {
+            "memory": 336,
+            "count": 3
+        },
+        "CINOSMultiSync": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSTaskExMsgHistory": {
+            "memory": 0,
+            "count": 0
+        },
+        "CTransformDelayedUnit": {
+            "memory": 0,
+            "count": 0
+        },
+        "SGINSubModule": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSBusPortHandler": {
+            "memory": 0,
+            "count": 0
+        },
+        "CHttpParentResource": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOVItemData": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSBusPortHandlerRef": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcRobotCmdCalib": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSOutPwm": {
+            "memory": 480,
+            "count": 4
+        },
+        "CINOSSafetyConfigControl": {
+            "memory": 0,
+            "count": 0
+        },
+        "CTransform": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSMcRobotCmdShapeEvent": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSBusPortHandlerDac": {
+            "memory": 4096,
+            "count": 32
+        },
+        "CINOSMcJobPartBlock": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcJobPartStop": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMovePathPartCircle": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSQueue": {
+            "memory": 6400,
+            "count": 50
+        },
+        "CINOSServiceIpv4UdpHandler": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSServiceIpv4UdpModbus": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSShapePartCircle": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSTaskExMsgDefaultParam": {
+            "memory": 2944,
+            "count": 23
+        },
+        "SGINModuleActive": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSRawLine": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSMcJobPartDesc": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSDataTransferMethod": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcRobotCmdMove": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSServicePdp": {
+            "memory": 144,
+            "count": 1
+        },
+        "CINOSTimingStatistics": {
+            "memory": 0,
+            "count": 0
+        },
+        "CTransformDelayed": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOMcScriptString": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSCubicSplineSeg": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSIncoAction": {
+            "memory": 7144,
+            "count": 47
+        },
+        "CINOSMovePathSegmentN": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSRampCacheEntry": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSBusPortHandlerInp": {
+            "memory": 1064,
+            "count": 7
+        },
+        "SINOSBusPortHandlerOut": {
+            "memory": 1216,
+            "count": 8
+        },
+        "CINCOConObject": {
+            "memory": 8000,
+            "count": 50
+        },
+        "CINOSBusPort": {
+            "memory": 7040,
+            "count": 44
+        },
+        "CINOSDataTransferLuaEndpoint": {
+            "memory": 320,
+            "count": 2
+        },
+        "CINOSMcJobPartScript": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcScriptEvtHnd": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMovePathSegmentNurbsN": {
+            "memory": 0,
+            "count": 0
+        },
+        "SStreamVar": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOCOPDevice": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcScriptCmd": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMovePathInterpolatorSegment": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMovePathSegmentBaseN": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMovePathCurveN": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMovePathCurveNurbsN": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcLuaEvtDesc": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMovePathPartClothoid": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSServiceSio": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcScriptEvtDesc": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSBusPortHandlerRef": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSMcRobotCmdCalibPart": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSMcRobotCmdMovePart": {
+            "memory": 0,
+            "count": 0
+        },
+        "TINOSMotionFrameN": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcRobotCmdEndless": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcRobotCmdMoveToBorder": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSBusPortHandlerAdc": {
+            "memory": 2496,
+            "count": 12
+        },
+        "SINOSBusPortHandlerDac": {
+            "memory": 6656,
+            "count": 32
+        },
+        "SINOSBusPortHandlerPos": {
+            "memory": 3328,
+            "count": 16
+        },
+        "SINOSMcRobotCmdInitPart": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcJobPartDesc": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSRampJob": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSBusPortHandlerTdc": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcRobotCmdLinear": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcRobotCmdMoveCarefully": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcRobotCmdMoveToBorderApp": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSTaskExMsgTriggerEvent": {
+            "memory": 0,
+            "count": 0
+        },
+        "SHSLdcChn": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcLuaTask": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMovePathInterpolator": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMovePathInterpolatorNone": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSServiceSyncShift": {
+            "memory": 232,
+            "count": 1
+        },
+        "CINOSSynchronizedAxes": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSBusPortHandlerTdc": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOVTransmissionRequest": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcNvRamLongString": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcDataPropExMem": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcRobot": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcRobotCmdShape": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSTaskExMsg": {
+            "memory": 596224,
+            "count": 2329
+        },
+        "CINOSTaskExMsgUser": {
+            "memory": 0,
+            "count": 0
+        },
+        "McJobData": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSLuaCModule": {
+            "memory": 1320,
+            "count": 5
+        },
+        "CINOSMcLuaPendingCall": {
+            "memory": 0,
+            "count": 0
+        },
+        "TINOSDataChannelDataPacketBufferTEntryCntCount": {
+            "memory": 264,
+            "count": 1
+        },
+        "CINOSExceptionMsg": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMoveCacheEntry": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSServiceIpv4Udp": {
+            "memory": 272,
+            "count": 1
+        },
+        "SINOSPausedDesc": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcRobotCmdMoveEx": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcTargetSubscription": {
+            "memory": 7560,
+            "count": 27
+        },
+        "SDT2Table": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcRobotCmdMoveToDigitalSensor": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSSafetyConfigMonitor": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSBusPortHandlerPt1": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSLua": {
+            "memory": 304,
+            "count": 1
+        },
+        "MovePath": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSBusPortHandlerThc": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSMcTargetTimeSyncJob": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSFollowAxis": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcDataProp": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSCOPSioChannel": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSMcLuaBreakpoint": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSTestpoint": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSCalib": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSCartesian": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMapping": {
+            "memory": 0,
+            "count": 0
+        },
+        "CCOPModule": {
+            "memory": 1440,
+            "count": 4
+        },
+        "CINOSBusModule": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSDataTransferChannelUdp": {
+            "memory": 720,
+            "count": 2
+        },
+        "CINOSDataTransferEndpoint": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSDataTransferEndpointSync": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSNurbsCurveN": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSDataTransferEndpointAsync": {
+            "memory": 752,
+            "count": 2
+        },
+        "CINOSStream": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcRobotCmdMoveToAnalogSensor": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSDataTransferMethodSequential": {
+            "memory": 1600,
+            "count": 4
+        },
+        "CINOSLuaBreakpoint": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMovePath": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSImage": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSImageData": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSImageDataJson": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSImageDtb": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSImageHx": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSImageMovePath": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSImageMultiple": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSImageSingle": {
+            "memory": 37856,
+            "count": 91
+        },
+        "CINOSImageDt2": {
+            "memory": 10176,
+            "count": 24
+        },
+        "CINOSImageMovePathXml": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcCron": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcModuleRes": {
+            "memory": 440,
+            "count": 1
+        },
+        "CINOSImageDataXml": {
+            "memory": 1344,
+            "count": 3
+        },
+        "CINOSMcScriptInst": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSBusLocalModule": {
+            "memory": 488,
+            "count": 1
+        },
+        "CINCODataLogger-logbuffer": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcTargetCommFrame": {
+            "memory": 16384,
+            "count": 32
+        },
+        "CINOSTaskExMsgParamEx": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSStreamSet": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOFrame": {
+            "memory": 16896,
+            "count": 32
+        },
+        "SINOSRampJobLookAhead": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSEventLogBuffer": {
+            "memory": 3440640,
+            "count": 6144
+        },
+        "CINCOLogBufferOverlayDeflated": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOVThreadImpl": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSControl": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcValve": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSServiceMcRobot": {
+            "memory": 624,
+            "count": 1
+        },
+        "CINOSBaseControl": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSBusSio": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSBaseController": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOS2PtController": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSEventLogger": {
+            "memory": 2016,
+            "count": 3
+        },
+        "CINOSContainerT": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMovePathTrajectory": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSGsbControl": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcRobotCmdMoveSafe": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSHSSIControl": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSPwmControl": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSSl2Control": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMovePathTrajectoryConstant": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSKrgControl": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSMcMessageDesc": {
+            "memory": 0,
+            "count": 0
+        },
+        "CInosTcpServer": {
+            "memory": 0,
+            "count": 0
+        },
+        "CRuleEntry": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcJobInst": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSPosControl": {
+            "memory": 3232,
+            "count": 4
+        },
+        "CINOSMcBaseJob": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcBaseScript": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcData": {
+            "memory": 824,
+            "count": 1
+        },
+        "CINOSMcDataInst": {
+            "memory": 0,
+            "count": 0
+        },
+        "CTcpClient": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSBaseRamp": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSJerkRamp": {
+            "memory": 3424,
+            "count": 4
+        },
+        "CINOSJerkRmsRamp": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSTrapezeRamp": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSJerkTrqRamp": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSBaseAxis": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSCurControl": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSModbusSlv": {
+            "memory": 0,
+            "count": 0
+        },
+        "CMcResultStreamSDynamicBuffer": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSCOPModuleEeprom": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSCOPScanMod": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcLuaJob": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcLuaScript": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCODataLoggerReader": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSShape": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSPhysicalAxis": {
+            "memory": 4928,
+            "count": 4
+        },
+        "CGINModule": {
+            "memory": 0,
+            "count": 0
+        },
+        "CGINModuleActive": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSSioTft": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSPolygon": {
+            "memory": 0,
+            "count": 0
+        },
+        "CGINDeviceCOP": {
+            "memory": 1528,
+            "count": 1
+        },
+        "CINOSMcScript": {
+            "memory": 0,
+            "count": 0
+        },
+        "TINOSDataChannelDataPacketDefaultT1CountT2": {
+            "memory": 1536,
+            "count": 1
+        },
+        "CINOSCOPModule": {
+            "memory": 9840,
+            "count": 6
+        },
+        "CGINDeviceCOPMain": {
+            "memory": 1648,
+            "count": 1
+        },
+        "CINOSGCode": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSCubicSpline": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOVServerSession": {
+            "memory": 1880,
+            "count": 1
+        },
+        "CINOSMcJob": {
+            "memory": 0,
+            "count": 0
+        },
+        "CCOPDevice": {
+            "memory": 2136,
+            "count": 1
+        },
+        "CGINModuleCOP": {
+            "memory": 2544,
+            "count": 1
+        },
+        "CINOSTaskEx": {
+            "memory": 0,
+            "count": 0
+        },
+        "CImageBurnerTask": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMovePathHelper": {
+            "memory": 0,
+            "count": 0
+        },
+        "CIncoWorker": {
+            "memory": 2760,
+            "count": 1
+        },
+        "CINCOVParseImage": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSCOPSio": {
+            "memory": 2776,
+            "count": 1
+        },
+        "CINOSMcCoord": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcMessage": {
+            "memory": 5712,
+            "count": 2
+        },
+        "CINOSMcFastLoad": {
+            "memory": 3056,
+            "count": 1
+        },
+        "CINCOVFrameHandler": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcTargetAxis": {
+            "memory": 3072,
+            "count": 1
+        },
+        "CINOSMcTargetBase": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcTargetBoot": {
+            "memory": 3072,
+            "count": 1
+        },
+        "CINOSMcTargetFieldbusMaster": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcTargetNvRam": {
+            "memory": 3072,
+            "count": 1
+        },
+        "CINOSMcTargetResource": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcTargetDtb": {
+            "memory": 3080,
+            "count": 1
+        },
+        "CINOSMcTargetFieldbusMasterGinLink": {
+            "memory": 3080,
+            "count": 1
+        },
+        "CINOSMcTargetHx": {
+            "memory": 3080,
+            "count": 1
+        },
+        "CINOSMcTargetImage": {
+            "memory": 3080,
+            "count": 1
+        },
+        "CINOSMcTargetImageTransfer": {
+            "memory": 3080,
+            "count": 1
+        },
+        "CINOSMcTargetData": {
+            "memory": 3088,
+            "count": 1
+        },
+        "CINOSMcTargetFieldbusMasterCopBus": {
+            "memory": 3088,
+            "count": 1
+        },
+        "CINOSMcTargetFieldbusMasterLocalbus": {
+            "memory": 3088,
+            "count": 1
+        },
+        "CINOSMcTargetDt2": {
+            "memory": 3096,
+            "count": 1
+        },
+        "CINCOVDiscovery": {
+            "memory": 3104,
+            "count": 1
+        },
+        "CINCOVAccessController": {
+            "memory": 3120,
+            "count": 1
+        },
+        "CINOSMcTargetMovePath": {
+            "memory": 3120,
+            "count": 1
+        },
+        "CINOSMcTargetSystem": {
+            "memory": 3152,
+            "count": 1
+        },
+        "CINOSMcTargetXlog": {
+            "memory": 3152,
+            "count": 1
+        },
+        "CINOSMcRobotAxis": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcTargetFieldbusSlave": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOVParseItem": {
+            "memory": 3216,
+            "count": 1
+        },
+        "CINOSMcTargetFieldbusSlaveLocalbus": {
+            "memory": 0,
+            "count": 0
+        },
+        "CTcpHandler": {
+            "memory": 0,
+            "count": 0
+        },
+        "CTcpReceiver": {
+            "memory": 3256,
+            "count": 1
+        },
+        "CINOSMcGuardian": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcTarget": {
+            "memory": 3368,
+            "count": 1
+        },
+        "CTcpServer": {
+            "memory": 0,
+            "count": 0
+        },
+        "CTcpSender": {
+            "memory": 3568,
+            "count": 1
+        },
+        "CHttpServer": {
+            "memory": 3672,
+            "count": 1
+        },
+        "CINOSMcLua": {
+            "memory": 3752,
+            "count": 1
+        },
+        "CINOSLogTransferEndpoint": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSCOPMaster": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcTargetMessageRouter": {
+            "memory": 4120,
+            "count": 1
+        },
+        "CINOSMcTargetTimeSync": {
+            "memory": 4168,
+            "count": 1
+        },
+        "CINOSMcModule": {
+            "memory": 0,
+            "count": 0
+        },
+        "DVTAnalogIo": {
+            "memory": 0,
+            "count": 0
+        },
+        "DVTLoggerBase": {
+            "memory": 0,
+            "count": 0
+        },
+        "DVTLoggerTester": {
+            "memory": 0,
+            "count": 0
+        },
+        "DVTLoggerBonder": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSCOPMaster": {
+            "memory": 8800,
+            "count": 2
+        },
+        "DVTHeadWatchdogX6": {
+            "memory": 0,
+            "count": 0
+        },
+        "DVTOneWireDevice": {
+            "memory": 0,
+            "count": 0
+        },
+        "DVTMachine": {
+            "memory": 4480,
+            "count": 1
+        },
+        "CINOSMcGinHmi": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcSystemTest": {
+            "memory": 0,
+            "count": 0
+        },
+        "DVTUltraSonic": {
+            "memory": 0,
+            "count": 0
+        },
+        "DVTFlameoff": {
+            "memory": 0,
+            "count": 0
+        },
+        "DVTWireClampPwm": {
+            "memory": 0,
+            "count": 0
+        },
+        "DVTWireFeederX6": {
+            "memory": 0,
+            "count": 0
+        },
+        "DVTWireClampStepperX6": {
+            "memory": 0,
+            "count": 0
+        },
+        "DVTBondWeight": {
+            "memory": 0,
+            "count": 0
+        },
+        "DVTWireFeeder58": {
+            "memory": 0,
+            "count": 0
+        },
+        "DVTWireClampStepper58": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMcTargetCommTest": {
+            "memory": 5456,
+            "count": 1
+        },
+        "DVTDusgx": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOAsyncResultMgr": {
+            "memory": 6192,
+            "count": 1
+        },
+        "DVTDrivesBonder": {
+            "memory": 0,
+            "count": 0
+        },
+        "DVTCartridgeEepromX6": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSSockAddrTable": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSBusLocal": {
+            "memory": 7384,
+            "count": 1
+        },
+        "DVTDigitalIo": {
+            "memory": 0,
+            "count": 0
+        },
+        "CCOPBus": {
+            "memory": 8072,
+            "count": 1
+        },
+        "CHttpINCOVResource": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMovePathInterpolatorClothoid": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMovePathInterpolatorBlend": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMovePathInterpolatorShape": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMovePathTrajectorySegment": {
+            "memory": 0,
+            "count": 0
+        },
+        "DVTDrivesTester": {
+            "memory": 0,
+            "count": 0
+        },
+        "CGINLink": {
+            "memory": 13592,
+            "count": 1
+        },
+        "CINOSTaskExMsgParamINCOV": {
+            "memory": 0,
+            "count": 0
+        },
+        "SINOSBusHandlerBuffer": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOVPreallocatedBufferN": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMovePathInterpolatorNurbs": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCODataLogger": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOVParse": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINCOVProtoBuffer": {
+            "memory": 0,
+            "count": 0
+        },
+        "CProtofbufClone": {
+            "memory": 32792,
+            "count": 1
+        },
+        "SProcedureData": {
+            "memory": 0,
+            "count": 0
+        },
+        "CWebSocketResponder": {
+            "memory": 0,
+            "count": 0
+        },
+        "CINOSMovePathTrajectoryLookAHead": {
+            "memory": 0,
+            "count": 0
+        },
+        "DVTHeadEepromX6": {
+            "memory": 0,
+            "count": 0
+        },
+        "CWebSocketClient": {
+            "memory": 98488,
+            "count": 1
+        },
+        "DvtHeadEeprom58": {
+            "memory": 0,
+            "count": 0
+        },
+        "CHttpClient": {
+            "memory": 460272,
+            "count": 1
+        },
+        "CINCOVTokenCtrl": {
+            "memory": 462520,
+            "count": 1
+        }
+    }
 }

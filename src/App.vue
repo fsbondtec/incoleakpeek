@@ -71,7 +71,7 @@
                 <v-list-item prepend-icon="mdi-exit-run" title="Exit" @click="closeWindow"></v-list-item>
                 <v-divider></v-divider>
                 <v-list-item>
-                    <v-switch label="Dark Mode" v-model="theme.global.current.value.dark" margin-left="20px"></v-switch>
+                    <v-switch label="Dark Mode" v-model="darkMode" margin-left="20px" @change="toggleDarkMode"></v-switch>
                 </v-list-item>
             </v-list>
         </v-navigation-drawer>
@@ -110,45 +110,38 @@
 import { ref, onMounted, onBeforeUnmount, watch } from "vue";
 import { useTheme } from "vuetify";
 import "@mdi/font/css/materialdesignicons.css";
-import { incoconnect, incodisconnect, incoclassmemusage, incousedmem, incototalmem, incoallocatedmem } from "./incoconnection.js";
+import { incoconnect, incodisconnect, incoclassmemusage, incototalmem } from "./incoconnection.js";
 
 import { use } from 'echarts/core'
 import { LineChart } from 'echarts/charts'
 import { TooltipComponent, GridComponent } from 'echarts/components'
 import { CanvasRenderer } from 'echarts/renderers'
-import VChart, { THEME_KEY } from 'vue-echarts';
+import VChart from 'vue-echarts';
 use([TooltipComponent, GridComponent, LineChart, CanvasRenderer])
 
 let intervalId = null;
 
 const drawer = ref(false);
-
 const aboutDialog = ref(false);
-
 const totalmem = ref(1);
 const membegin = ref({});
-
+const countbegin = ref({});
+const countmax = ref({});
 const theme = useTheme();
-
 const search = ref("");
+const darkMode = ref(true);
 
 const headers = ref([
     { title: "Class Name", key: "name" },
     { title: "RAM (Byte)", key: "memory" },
-    { title: "total Δ (Byte)", key: "tdeltab" },
-    { title: "total Δ (%)", key: "tdeltap" },
-    { title: "last Δ (Byte)", key: "ldeltab" },
-    { title: "last Δ (%)", key: "ldeltap" },
+    { title: "start count", key: "startcount" },
+    { title: "count", key: "actcount" },
+    { title: "count Δ", key: "countdelta" },
+    { title: "max count", key: "maxcount" },
+    
 ]);
 
 const items = ref([]);
-
-const series = ref([
-    {
-        name: "RAM (Byte)",
-        data: [],
-    },
-]);
 
 const chartOptions = ref({
     color: ['#4dc3ff', '#ff614d'],
@@ -179,6 +172,9 @@ const chartOptions = ref({
         {
             type: 'value',
             splitNumber: 4,
+            axisLabel: {
+                formatter: '{value} B'
+            }
         }
     ],
     series: [
@@ -222,24 +218,22 @@ const options = ref([
     { title: '60 seconds', value: 60000 },
 ]);
 
-watch(selectInterval, (newInterval) => {
-    if (intervalId) {
-        clearInterval(intervalId);
-    }
-    intervalId = setInterval(updateMemoryUsage, newInterval);
-});
-
 const isRecording = ref(false);
 
 function toggleRecord() {
     isRecording.value = !isRecording.value;
+    intervalId = setInterval(updateMemoryUsage, selectInterval.value);
     if (isRecording.value) {
         console.log("Recording started");
-        series.value[0].data = [];
+        chartOptions.value.xAxis[0].data = [];
+        chartOptions.value.series[0].data = [];
+        chartOptions.value.series[1].data = [];
         items.value = [];
         chartOptions.value.yAxis[0].max = totalmem.value;
         chartOptions.value.yAxis[0].interval = totalmem.value / 4;
     } else {
+        clearInterval(intervalId);
+        intervalId = null;
         console.log("Recording stopped");
     }
 }
@@ -249,36 +243,30 @@ const updateMemoryUsage = () => {
         return;
     }
 
-    incousedmem().then((usedmem) => {
-        const currentTime = new Date().toLocaleTimeString('en-US', { hour12: false });
-        incoallocatedmem().then((allocatedmem) => {
-            chartOptions.value.xAxis[0].data.push(currentTime);
-            chartOptions.value.series[0].data.push(usedmem);
-            chartOptions.value.series[1].data.push(allocatedmem);
-        });
-    });
-
     incoclassmemusage().then((incoClasses) => {
         if (incoClasses && typeof incoClasses === "object") {
+            const currentTime = new Date().toLocaleTimeString('en-US', { hour12: false });
             var old = items.value;
             items.value = [];
-            for (const [classKey, classValue] of Object.entries(incoClasses)) {
-                var firstItem = membegin.value[classKey];
-                var tdeltab = firstItem ? classValue - firstItem : 0;
-                var tdeltap = firstItem ? (tdeltab / firstItem) * 100 : 0;
-                var oldItem = old.find(item => item.name === classKey);
-                var ldeltab = oldItem ? classValue - oldItem.memory : 0;
-                var ldeltap = oldItem ? (ldeltab / oldItem.memory) * 100 : 0;
+            for (const [classKey, classValue] of Object.entries(incoClasses.classes)) {
+                var startcount = countbegin.value[classKey];
+                var countdelta = classValue.count - startcount;
+                var actcount = classValue.count;
+                countmax.value[classKey] = Math.max(countmax.value[classKey], actcount);
+
                 var cla = {
                     name: classKey,
-                    memory: classValue,
-                    tdeltab: tdeltab,
-                    tdeltap: tdeltap.toFixed(2),
-                    ldeltab: ldeltab,
-                    ldeltap: ldeltap.toFixed(2),
+                    memory: classValue.memory,
+                    startcount: startcount,
+                    actcount: actcount,
+                    maxcount: countmax.value[classKey],
+                    countdelta: countdelta,
                 };
                 items.value.push(cla);
             }
+            chartOptions.value.xAxis[0].data.push(currentTime);
+            chartOptions.value.series[0].data.push(incoClasses.used);
+            chartOptions.value.series[1].data.push(incoClasses.alloc - incoClasses.used);
         } else {
             console.error("Invalid data received from getClassMemUseage");
         }
@@ -296,7 +284,9 @@ async function saveFile() {
         const saveFileData = {
             totalmem: totalmem.value,
             membegin: membegin.value,
-            series: series.value,
+            countbegin: countbegin.value,
+            countmax: countmax.value,
+            chartopt: chartOptions.value,
             items: items.value,
         };
         const jsonData = JSON.stringify(saveFileData);
@@ -317,7 +307,9 @@ function loadFile() {
             const data = JSON.parse(jsonData.data);
             totalmem.value = data.totalmem;
             membegin.value = data.membegin;
-            series.value = data.series;
+            countbegin.value = data.countbegin;
+            countmax.value = data.countmax;
+            chartOptions.value = data.chartopt;
             items.value = data.items;
         } else {
             console.log("User canceled the open dialog.");
@@ -330,8 +322,9 @@ function showAboutDialog() {
 }
 
 function toggleDarkMode() {
+    theme.global.current.value.dark = darkMode.value;
+    theme.global.name.value = theme.global.current.value.dark ? "dark" : "light";
     localStorage.setItem("darkMode", theme.global.current.value.dark);
-    theme.global.name.value = theme.global.current.value.dark ? "light" : "dark";
 }
 
 function minimizeWindow() {
@@ -354,8 +347,10 @@ onMounted(() => {
             totalmem.value = total;
         });
         incoclassmemusage().then((incoClasses) => {
-            for (const [classKey, classValue] of Object.entries(incoClasses)) {
-                membegin.value[classKey] = classValue;
+            for (const [classKey, classValue] of Object.entries(incoClasses.classes)) {
+                membegin.value[classKey] = classValue.memory;
+                countbegin.value[classKey] = classValue.count;
+                countmax.value[classKey] = classValue.count;
             }
         });
     });
@@ -363,17 +358,13 @@ onMounted(() => {
     const savedDarkMode = localStorage.getItem('darkMode');
     if (savedDarkMode !== null) {
       const isDark = savedDarkMode === 'true';
+      darkMode.value = isDark;
       theme.global.current.value.dark = isDark;
-      theme.global.name.value = isDark ? 'light' : 'dark';
+      theme.global.name.value = isDark ? 'dark' : 'light';
     }
-
-    intervalId = setInterval(updateMemoryUsage, selectInterval.value); // Use selectInterval value
 });
 
 onBeforeUnmount(() => {
-    if (intervalId) {
-        clearInterval(intervalId);
-    }
     incodisconnect();
 });
 

@@ -1,6 +1,6 @@
 import dummyData from './dummy_data.json';
 
-let NOHARDWARE = true;
+let NOHARDWARE = false;
 
 let session = null;
 
@@ -46,9 +46,12 @@ export function incodisconnect() {
 export async function incoclassmemusage() {
     if (NOHARDWARE) {
         ret = dummyData;
-        for (const key in ret) {
-            ret[key] += Math.floor(Math.random() * 100);
+        for (const key in ret.classes) {
+            ret.classes[key].memory += Math.floor(Math.random() * 100);
+            ret.classes[key].count += Math.floor(Math.random() * 10);
         }
+        ret.alloc += Math.floor(Math.random() * 1000000);
+        ret.used += Math.floor(Math.random() * 100000);
         return ret;
     }
 
@@ -58,6 +61,9 @@ export async function incoclassmemusage() {
         return ret;
     }
 
+    var allocatedmem = 0;
+    var usedmem = 0;
+    var classmem = new Object();
     try {
         const partitions = await session.getTree(
             "Target.Memory.Pools.Heap.Partitions",
@@ -66,32 +72,48 @@ export async function incoclassmemusage() {
             const classes = await session.getTree(
                 "Target.Memory.Pools.Heap.Partitions." + key + ".Classes",
             );
+            const actsize = await session.getVariable(
+                "Target.Memory.Pools.Heap.Partitions." + key + ".ActSize",
+            );
+            const usedsize = await session.getVariable(
+                "Target.Memory.Pools.Heap.Partitions." + key + ".UsedSize",
+            );
+            allocatedmem += actsize.value.value * key;
+            usedmem += usedsize.value.value * key;
             for (const [classKey, classValue] of Object.entries(classes.members,)) {
                 if (classValue.value.value === "Count unavailable") {
                     continue;
                 }
-                if (classKey in ret) {
-                    ret[classKey] += key * classValue.value.value;
+                if (classKey in classmem) {
+                    classmem[classKey].memory += key * classValue.value.value;
+                    classmem[classKey].count += classValue.value.value;
                 } else {
-                    ret[classKey] = key * classValue.value.value;
+                    classmem[classKey] = {
+                        memory: key * classValue.value.value,
+                        count: classValue.value.value
+                    };
                 }
             }
         }
     } catch (error) {
         console.error("Error fetching Heap Tree:", error);
     }
-
+    ret = {
+        alloc: allocatedmem,
+        used: usedmem,
+        classes: classmem,
+    }
     console.log(ret);
     return ret;
 }
 
 export async function incototalmem() {
     if (NOHARDWARE) {
-        return 128;
+        return 128000000;
     }
 
     return session.getVariable("Target.Memory.Pools.Heap.Size").then((size) => {
-        return size.value.value / 1000;
+        return size.value.value;
     });
 }
 
@@ -100,19 +122,6 @@ export async function incousedmem() {
         return Math.floor(Math.random() * 128);
     }
 
-    return session.getVariable("Target.Memory.Pools.Heap.FreeSize").then((freeSize) => {
-        return session.getVariable("Target.Memory.Pools.Heap.Size").then((size) => {
-            return (size.value.value - freeSize.value.value) / 1000;
-        });
-    });
-}
-
-export async function incoallocatedmem() {
-    if (NOHARDWARE) {
-        return Math.floor(Math.random() * 10);
-    }
-
-    // ToDo das echte hin schrieben
     return session.getVariable("Target.Memory.Pools.Heap.FreeSize").then((freeSize) => {
         return session.getVariable("Target.Memory.Pools.Heap.Size").then((size) => {
             return (size.value.value - freeSize.value.value) / 1000;
