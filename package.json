@@ -1,8 +1,8 @@
 {
     "name": "incoleakpeek",
     "productName": "incoleakpeek",
-    "version": "0.0.1",
-    "description": "My Electron application description",
+    "version": "0.0.2",
+    "description": "IncoLeakPeek is a memory usage monitoring tool designed to detecting memory leaks within Indel industrial automation systems.",
     "main": ".vite/build/main.js",
     "scripts": {
         "start": "electron-forge start",

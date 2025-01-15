@@ -98,7 +98,7 @@
                 <v-card-title class="headline">About IncoLeakPeek</v-card-title>
                 <v-card-text>
                     <p><strong>IncoLeakPeek</strong> is a memory usage monitoring tool designed to detecting memory leaks within <a href="https://www.indel.ch/" target="_blank">Indel</a> industrial automation systems.</p>
-                    <p><strong>Version:</strong> 0.0.1</p>
+                    <p><strong>Version:</strong> 0.0.2</p>
                     <p><strong>Developed by:</strong> <a href="https://www.fsbondtec.at/" target="_blank">F&S BONDTEC Semiconductor GmbH</a></p>
                     <p><strong>License:</strong> This project is licensed under the MIT License.</p>
                     <p><strong>Third-Party Licenses:</strong></p>
