@@ -1,6 +1,8 @@
 # IncoLeakPeek
 
-User interface for detecting memory leaks in the control software by [Indel AG](https://www.indel.ch). This project was created during an internal hackathon at [F&S BONDTEC Semiconductor GmbH](https://www.fsbondtec.at/).
+IncoLeakPeek is a memory usage monitoring tool designed to detecting memory leaks within [Indel](https://www.indel.ch) industrial automation systems.
+
+This project was created during an internal hackathon at [F&S BONDTEC Semiconductor GmbH](https://www.fsbondtec.at/).
 
 ## Features
 
@@ -54,7 +56,7 @@ This project is licensed under the MIT License. See the [LICENSE](https://github
 
 ### Third-Party Licenses
 
-This project uses `incov.browser.min.js` from Indel AG. The usage of this library is subject to Indel AG's licensing terms. For more information, please refer to Indel AG's official documentation and licensing agreements.
+This project uses `incov.browser.min.js` from [Indel AG](https://www.indel.ch). The usage of this library is subject to Indel AG's licensing terms. For more information, please refer to Indel AG's official documentation and licensing agreements.
 
 Additionally, this project uses Electron and Node.js, which are licensed under the MIT License. For more information, please refer to their respective [Electron License](https://github.com/electron/electron/blob/main/LICENSE) and [Node.js License](https://github.com/nodejs/node/blob/main/LICENSE).
 
